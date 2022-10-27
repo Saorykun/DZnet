@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/border.xml" value="0.1955" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/button_gradiant_1.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/button_gradiant_2.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/button_selector.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/button_selector_v21.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1965" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/themegrad.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_menu.xml" value="0.3073322932917317" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_oge_test6.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_setting.xml" value="0.33" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema1.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema10.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema2.xml" value="0.2757318224740321" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema3.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema4.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema5.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema6.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema7.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema8.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_tema9.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_test.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_test_oge6.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/activity_xmllayout.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/app_bar_test.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/button_gradiant_1.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/content_oge_test6.xml" value="0.21927083333333333" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/content_test.xml" value="0.25" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_gallery.xml" value="0.33" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_page.xml" value="0.33" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_slideshow.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/nav_header_test.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/rowlayout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/settings_activity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/layout/task.xml" value="0.3875" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/menu/test.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Saory-Elolion/AndroidStudioProjects/MyApplication/app/src/main/res/xml/root_preferences.xml" value="0.20520833333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
