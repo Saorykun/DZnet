@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class tema2 extends AppCompatActivity {
-    final private int Module = 2;
+    final private String Module = "2";
 
     @Override
     protected void onPause() {

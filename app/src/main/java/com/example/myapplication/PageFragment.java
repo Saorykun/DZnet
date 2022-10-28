@@ -77,8 +77,7 @@ public class PageFragment extends Fragment {
         TextView estimation = result.findViewById(R.id.Estim);
         TextView attempt = result.findViewById(R.id.Attempt);
 
-       // final GlobalClass globalVariable = (GlobalClass) getActivity().getApplicationContext();
-        estimation.setText("Балл: " + globalVariable.getModule(pageNumber + 1)) ;
+        estimation.setText("Балл: " + globalVariable.getModule(Integer.toString(pageNumber + 1))) ;
         if(globalVariable.getModeAttempt()){
             attempt.setText("Попыток осталось: " + (3 - globalVariable.getAttempt(pageNumber+1)));
         }

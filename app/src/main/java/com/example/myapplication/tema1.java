@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class tema1 extends AppCompatActivity {
-    final private int Module = 1;
+    final private String Module = "1";
 
     @Override
     protected void onPause() {

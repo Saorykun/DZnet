@@ -1,11 +1,10 @@
 package com.example.myapplication;
 
-public class Structure_Task {
+public class Structure_Task{
 
     private String text;
     private int id;
     private String answer;
-
 
     public String getText() {
         return text;

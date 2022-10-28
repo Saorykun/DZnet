@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 
 public class tema3 extends AppCompatActivity {
-    final private int Module = 3;
+    final private String Module = "3";
 
     @Override
     protected void onPause() {

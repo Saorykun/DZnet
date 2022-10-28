@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 
 public class tema9 extends AppCompatActivity {
-    final private int Module = 9;
+    final private String Module = "9";
     public enum food {
         маком,
         грибами,

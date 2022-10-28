@@ -4,34 +4,20 @@ import com.example.myapplication.Generation;
 
 import java.util.Random;
 
-public class OGE_6 {
+public class OGE_6 implements Taskable{
 
-    private int Sum_num=2;
+    private final String Id = "ОГЭ_6";
     private Structure_Task task;
     private Generations generation;
 
-    OGE_6(){
-        this(1,new Generations());
-    }
-
-    //Для создания нового номера добавь соотвествующий case и увеличь Sum_num
-    OGE_6(int var,Generations generation){
+    OGE_6(Generations generation){
         this.generation=generation;
-        switch (var){
-            case(1):
-                this.task = var_1();
-                break;
-            case(2):
-                this.task = var_2();
-                break;
-        }
     }
 
-
-    Structure_Task var_1(){
+    public Structure_Task getTask(){
         float[] nums = new float[generation.RandomInt(3,5)];
         for(int i=0;i<nums.length;i++){
-            nums[i]= (float) generation.RandomDouble(0,5, 1);
+            nums[i]= (float) generation.RandomDouble(1,5, 1);
         }
         float answer=nums[0];
         String text =""+nums[0];
@@ -73,6 +59,7 @@ public class OGE_6 {
         task.setAnswer(answer1);
         return task;
     }
+
     Structure_Task var_2(){
         int i = generation.RandomInt(2, 8);
         int r = generation.RandomInt(2, 8);
@@ -88,20 +75,7 @@ public class OGE_6 {
         return task;
     }
 
-
-    public int getSum_num() {
-        return Sum_num;
-    }
-
-    public Structure_Task getTask() {
-        return task;
-    }
-
-    public Generations getGeneration() {
-        return generation;
-    }
-
-    public void setGeneration(Generations generation) {
-        this.generation = generation;
+    public static String getIdTask(){
+        return "ОГЭ_6";
     }
 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 
 public class tema7 extends AppCompatActivity {
-    final private int Module = 7;
+    final private String Module = "7";
     public enum name {
         Даша,
         Маша,

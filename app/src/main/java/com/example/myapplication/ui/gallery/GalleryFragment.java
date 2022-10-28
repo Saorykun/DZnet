@@ -42,10 +42,10 @@ public class GalleryFragment extends Fragment {
         int y=0;
         for (int i = 0; i < 20; i++) {
 
-            if ((globalVariable.getModule(i + 1)==2)||
-                    (globalVariable.getModule(i + 1)==3)||
-                    (globalVariable.getModule(i + 1)==4)||
-                    (globalVariable.getModule(i + 1)==5)) {
+            if ((globalVariable.getModule(Integer.toString(i + 1))==2)||
+                    (globalVariable.getModule(Integer.toString(i + 1))==3)||
+                    (globalVariable.getModule(Integer.toString(i + 1))==4)||
+                    (globalVariable.getModule(Integer.toString(i + 1))==5)) {
                 TableRow tableRow = new TableRow(getContext());
                 tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.WRAP_CONTENT));
@@ -61,7 +61,7 @@ public class GalleryFragment extends Fragment {
                 textView1.setTextColor(Color.argb(255, 0, 0, 0));
                 textView1.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
                 textView1.setPadding(0, 0, 40, 0);
-                textView1.setText(String.valueOf(globalVariable.getModule(i + 1)));
+                textView1.setText(String.valueOf(globalVariable.getModule(Integer.toString(i + 1))));
 
                 tableRow.addView(textView1, new TableRow.LayoutParams(
                         TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0.6f));

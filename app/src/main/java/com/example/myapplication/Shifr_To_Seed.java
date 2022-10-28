@@ -40,7 +40,7 @@ public class Shifr_To_Seed {
         return seed;
     }
 
-    public int[] getEnter_task(String seed){
+    public String[] getEnter_task(String seed){
         int n=(int)(Long.parseLong(seed)%100);
         int[] number;
         number = new int[n/2];
@@ -55,7 +55,10 @@ public class Shifr_To_Seed {
             number[i] = number[number.length - i - 1];
             number[number.length - i - 1] = temp;
         }
-        return number;
+        String[] numStr=new String[number.length];
+        for(int i=0;i<number.length;i++)
+            numStr[i] = Integer.toString(number[i]);
+        return numStr;
     }
     public int[] getVol_task(String seed){
         int n=(int)(Long.parseLong(seed)%100)-1;
