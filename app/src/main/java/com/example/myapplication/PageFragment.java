@@ -79,7 +79,7 @@ public class PageFragment extends Fragment {
 
         estimation.setText("Балл: " + globalVariable.getModule(Integer.toString(pageNumber + 1))) ;
         if(globalVariable.getModeAttempt()){
-            attempt.setText("Попыток осталось: " + (3 - globalVariable.getAttempt(pageNumber+1)));
+            attempt.setText("Попыток осталось: " + globalVariable.getAttempt(pageNumber+1));
         }
         else {
             attempt.setText("Без ограничений");
@@ -89,8 +89,9 @@ public class PageFragment extends Fragment {
             public void onClick(View v) {
                 switch (pageNumber){
                     case (0):{
-                        if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                        if(globalVariable.getAttempt(pageNumber+1)>0) {
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), Test_Oge_6.class);                              //ytpf,elm gjvtyznm
                             startActivity(i);
@@ -104,7 +105,8 @@ public class PageFragment extends Fragment {
                     }
                     case (1):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema2.class);
                             startActivity(i);
@@ -118,7 +120,8 @@ public class PageFragment extends Fragment {
                     }
                     case (2):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema3.class);
                             startActivity(i);
@@ -132,7 +135,8 @@ public class PageFragment extends Fragment {
                     }
                     case (3):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema4.class);
                             startActivity(i);
@@ -146,7 +150,8 @@ public class PageFragment extends Fragment {
                     }
                     case (4):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema5.class);
                             startActivity(i);
@@ -160,7 +165,8 @@ public class PageFragment extends Fragment {
                     }
                     case (5):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema6.class);
                             startActivity(i);
@@ -174,7 +180,8 @@ public class PageFragment extends Fragment {
                     }
                     case (6):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema7.class);
                             startActivity(i);
@@ -188,7 +195,8 @@ public class PageFragment extends Fragment {
                     }
                     case (7):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema8.class);
                             startActivity(i);
@@ -202,7 +210,8 @@ public class PageFragment extends Fragment {
                     }
                     case (8):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema9.class);
                             startActivity(i);
@@ -216,7 +225,8 @@ public class PageFragment extends Fragment {
                     }
                     case (9):{
                         if(globalVariable.getAttempt(pageNumber+1)<3) {
-                            globalVariable.setAttemptPlus(pageNumber + 1);
+                            if(globalVariable.getModeAttempt())
+                                globalVariable.setAttemptMinus(pageNumber + 1);
                             Intent i;
                             i = new Intent(getContext(), tema10.class);
                             startActivity(i);

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class EnterVarVol {
     private String name;
-    private ArrayList<Integer> var;
+    private ArrayList<String> var;
     private ArrayList<Integer> vol;
 
     EnterVarVol(){}
 
-    EnterVarVol(String name,ArrayList<Integer> var,ArrayList<Integer> vol){
+    EnterVarVol(String name,ArrayList<String> var,ArrayList<Integer> vol){
         this.name=name;
         this.var=var;
         this.vol=vol;
@@ -23,24 +23,12 @@ public class EnterVarVol {
         this.name = name;
     }
 
-    public ArrayList<Integer> getVar() {
+    public ArrayList<String> getVar() {
         return var;
-    }
-
-    public void setVar(ArrayList<Integer> var) {
-        this.var = var;
     }
 
     public ArrayList<Integer> getVol() {
         return vol;
-    }
-
-    public void setVol(ArrayList<Integer> vol) {
-        this.vol = vol;
-    }
-
-    public void addVol(int vol){
-        this.vol.add(vol);
     }
 
     public void addVol(int a,int vol){
@@ -49,11 +37,9 @@ public class EnterVarVol {
         this.vol.add(a,vol);
     }
 
-    public void addVar(int var){
-        this.var.add(var);
-    }
-
-    public void addVar(int a,int var){
+    public void addVar(int a,String var){
+        if(this.var==null)
+            this.var=new ArrayList<>();
         this.var.add(a,var);
     }
 }

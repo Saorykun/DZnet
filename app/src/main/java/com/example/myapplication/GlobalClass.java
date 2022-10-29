@@ -113,11 +113,11 @@ public class GlobalClass extends Application {
         myEditor.putInt(("tema_attempt"+ number_module), number);
         myEditor.commit();
     }
-    public void setAttemptPlus(int number_module) {
+    public void setAttemptMinus(int number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("tema_attempt"+ number_module, myPreferences.getInt("tema_attempt"+ number_module,0)+1);
+        myEditor.putInt("tema_attempt"+ number_module, myPreferences.getInt("tema_attempt"+ number_module,0)-1);
         myEditor.commit();
     }
 

@@ -24,8 +24,8 @@ public class GenerateSeed {
                 int tmp=0;
                 for(int numName=0;numName<structureGen.getSumEnter();numName++) {
                     for (int r = 0; r < structureGen.getSumVar(numName); r++) {
-                        if (structureGen.getEnterVarVol().get(numName).getVar().get(r) >= 10) {
-                            mass.add(Integer.toString(structureGen.getEnterVarVol().get(numName).getVar().get(r)));
+                        if (structureGen.getEnterVarVol().get(numName).getVar().get(r).length() >= 2) {
+                            mass.add(structureGen.getEnterVarVol().get(numName).getVar().get(r));
                         } else {
                             mass.add( "0" + structureGen.getEnterVarVol().get(numName).getVar().get(r));
                         }
@@ -52,11 +52,19 @@ public class GenerateSeed {
 
                 i++;
 
-                if((structureGen.getEnterVarVol().get(ent).getName()).length()>=2){
+                if((structureGen.getEnterVarVol().get(ent).getName()).length()==3){
                     mass.add(structureGen.getEnterVarVol().get(ent).getName());
                 }
                 else {
-                    mass.add("0"+structureGen.getEnterVarVol().get(ent).getName().substring(0,2));
+                    if((structureGen.getEnterVarVol().get(ent).getName()).length()==2){
+                        mass.add("0"+structureGen.getEnterVarVol().get(ent).getName());
+                    }
+                    else {
+                        mass.add("00"+structureGen.getEnterVarVol().get(ent).getName());
+                    }
+                    if ((structureGen.getEnterVarVol().get(ent).getName()).length()>3){
+                        mass.add(""+structureGen.getEnterVarVol().get(ent).getName().substring(0,3));
+                    }
                 }
             }
 

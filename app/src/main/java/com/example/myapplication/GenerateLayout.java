@@ -55,10 +55,13 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1{
         right_answers = new ArrayList<>();
         //GOD to SCROLL
         ScrollView scr = new ScrollView(context);
+        CreateStructureTask structureTask = new CreateStructureTask();
+        god.addView(structureTask.infoForTest(context,generations));
         scr.addView(god);
         generationOrder();
         return scr;
     }
+
     private void generationOrder(){
         for(int i=0; i<structureGen.getEnterVarVol().size();i++){
             for(int r=0;r<structureGen.getEnterVarVol().get(i).getVar().size();r++) {
@@ -73,9 +76,7 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1{
         }
     }
 
-
-
-    private int convertPrToPixel(float pr) {
+    private static int convertPrToPixel(float pr) {
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float px = (metrics.widthPixels)*pr/100;
         return Math.round(px);
@@ -90,6 +91,17 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1{
         params.setMargins(convertPrToPixel(5), convertPrToPixel(2), convertPrToPixel(5), convertPrToPixel(2));
         lineLayout.setLayoutParams(params);
         linearLayout.addView(lineLayout);
+    }
+
+    public static LinearLayout lineSeperator(Context context) {
+        LinearLayout lineLayout = new LinearLayout(context);
+        lineLayout.setBackgroundColor(Color.GRAY);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                2);
+        params.setMargins(convertPrToPixel(5), convertPrToPixel(2), convertPrToPixel(5), convertPrToPixel(2));
+        lineLayout.setLayoutParams(params);
+        return lineLayout;
     }
 
 }

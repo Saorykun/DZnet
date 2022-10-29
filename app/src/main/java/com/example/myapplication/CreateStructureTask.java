@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
@@ -33,9 +34,46 @@ public class CreateStructureTask {
     Context context;
     String module;
     String tmpAnswer;
-    int var_task;
+    String var_task;
 
-    public LinearLayout getStructure(Context context,String enter_task,int var_task,Generations generations, String module){
+    public LinearLayout infoForTest(Context context,Generations generations){
+        String seed = generations.getSeed();
+
+        //Linear
+        LinearLayout infoLin = new LinearLayout(context);
+        infoLin.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout.LayoutParams infoLP = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        infoLin.setPadding(8,8,8,8);
+        infoLin.setLayoutParams(infoLP);
+
+        //TextviewSEED
+        TextView tv = new TextView(context);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        tv.setLayoutParams(lp);
+        tv.setText("SEED: "+seed);
+        tv.setPadding(32, 32, 32, 8);
+        tv.setTextAppearance(R.style.Task);
+        infoLin.addView(tv);
+
+        //TextviewINFO
+        TextView tvi = new TextView(context);
+        LinearLayout.LayoutParams lpi = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        tvi.setLayoutParams(lpi);
+        tvi.setText("Для дробей используй точку!");
+        tvi.setPadding(32, 8, 32, 32);
+        tvi.setTextAppearance(R.style.Task);
+        infoLin.addView(tvi);
+        infoLin.addView(GenerateLayout.lineSeperator(context));
+        return infoLin;
+    }
+
+    public LinearLayout getStructure(Context context,String enter_task,String var_task,Generations generations, String module){
         this.module=module;
         this.context=context;
         this.generations=generations;
@@ -98,6 +136,7 @@ public class CreateStructureTask {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         et.setLayoutParams(edd);
         et.setHint("answer");
+        et.setInputType(InputType.TYPE_CLASS_PHONE);
         et.setPadding(8, 8, 8, 8);
         hh.addView(et);
 

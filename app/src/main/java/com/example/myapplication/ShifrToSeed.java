@@ -31,8 +31,8 @@ public class ShifrToSeed {
 
         for(int i=0;i<n;i++){                                                             //по колву энтеров
             this.enterVarVols.add(0,new EnterVarVol());
-            this.enterVarVols.get(0).setName(seed.substring(seed.length()-2));            //считали энтер
-            seed=seed.substring(0,seed.length()-2);
+            this.enterVarVols.get(0).setName(seed.substring(seed.length()-3));            //считали энтер
+            seed=seed.substring(0,seed.length()-3);
             int var=Integer.parseInt(seed.substring(seed.length()-2));
             seed=seed.substring(0,seed.length()-2);
 
@@ -41,7 +41,7 @@ public class ShifrToSeed {
                 seed=seed.substring(0,seed.length()-2);
             }
             for(int v=0;v<var/2;v++){
-                this.enterVarVols.get(0).addVar(0,Integer.parseInt(seed.substring(seed.length()-2)));
+                this.enterVarVols.get(0).addVar(0,seed.substring(seed.length()-2));
                 seed=seed.substring(0,seed.length()-2);
             }
         }

@@ -42,7 +42,7 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
     int rightAnswer =0;
 
     //Self var
-    String Module ="ОГЭ_6"; //Модуль - это критерий по которому генерируются только вариации одного номера заданий из огэ
+    String Module ="006"; //Модуль - это критерий по которому генерируются только вариации одного номера заданий из огэ
                             //исключает Enter_task, то есть все равно какой он
 
     @Override
@@ -52,17 +52,15 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
 
         String seedVol="";
 
-        String[] Enter_task={"g6","g6","g6"};
+        String[] Enter_task={"006"};
 
-        ArrayList<Integer> Var_task = new ArrayList<>();
+        ArrayList<String> Var_task = new ArrayList<>();
         ArrayList<Integer> Vol_task= new ArrayList<>();
 
-        Var_task.add(1);
-        Vol_task.add(1);
-        Var_task.add(1);
-        Vol_task.add(1);
+        Var_task.add("1");
+        Vol_task.add(90);
 
-        int n=3;
+        int n=Enter_task.length;
         ArrayList<EnterVarVol> enterVarVols =new ArrayList<EnterVarVol>();
         for(int i=0;i<n;i++){
             enterVarVols.add(new EnterVarVol(Enter_task[i],Var_task,Vol_task));
@@ -74,7 +72,6 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
         GenerateLayout generateLayout = new GenerateLayout(getApplicationContext(),generations,this.structureGen,Module);
         generateLayout.setListener2(this);
         setContentView(generateLayout.createLayout());
-        int i=0;
     }
 
     private void Check() {

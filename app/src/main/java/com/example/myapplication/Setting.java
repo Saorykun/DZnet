@@ -55,16 +55,16 @@ public class Setting extends AppCompatActivity {
         Button setting = findViewById(R.id.setting);
         setting.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                globalVariable.setAttempt(1,-100);
-                globalVariable.setAttempt(2,-100);
-                globalVariable.setAttempt(3,-100);
-                globalVariable.setAttempt(4,-100);
-                globalVariable.setAttempt(5,-100);
-                globalVariable.setAttempt(6,-100);
-                globalVariable.setAttempt(7,-100);
-                globalVariable.setAttempt(8,-100);
-                globalVariable.setAttempt(9,-100);
-                globalVariable.setAttempt(10,-100);
+                globalVariable.setAttempt(1,100);
+                globalVariable.setAttempt(2,100);
+                globalVariable.setAttempt(3,100);
+                globalVariable.setAttempt(4,100);
+                globalVariable.setAttempt(5,100);
+                globalVariable.setAttempt(6,100);
+                globalVariable.setAttempt(7,100);
+                globalVariable.setAttempt(8,100);
+                globalVariable.setAttempt(9,100);
+                globalVariable.setAttempt(10,100);
                 startActivity(a);
                 finish();
             }
