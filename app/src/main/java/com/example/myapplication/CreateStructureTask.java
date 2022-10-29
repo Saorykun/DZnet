@@ -42,10 +42,13 @@ public class CreateStructureTask {
         this.enter_task=enter_task;
         this.var_task=var_task;
 
+        if(module!="") {
+            enter_task=module;
+        }
+
         //Создание таска
         SwitchModule switchModule = new SwitchModule();
-        Structure_Task struct = switchModule.getTask(module,var_task,generations);
-
+        Structure_Task struct = switchModule.getTask(enter_task, var_task, generations);
         //Из таска забрать ответы и отправить в тест
         this.tmpAnswer=struct.getAnswer();
         listener.loadRightAnswer(tmpAnswer,false,false);

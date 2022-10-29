@@ -15,13 +15,33 @@ public class Generations {
 
     Generations(String seed){
         this.seed=seed;
-        random = new Random(Long.parseLong(this.seed));
+        random = new Random(quality(seed));
 
         //Для улучшения качества рандома
         int x = random.nextInt(19);
         x = random.nextInt(19);
         x = random.nextInt(19);
 
+    }
+
+    private long quality(String seed){
+        long seedy=0;
+        int i=0;
+        while(seed.length()>10){
+            if(seed.length()<=20){
+                try {
+                    seedy+=Long.parseLong(seed.substring(10));
+                }catch (Exception e){};
+                seed=seed.substring(10);
+            }
+            else {
+                try {
+                    seedy+=Long.parseLong(seed.substring(0,10));
+                }catch (Exception e){};
+                seed=seed.substring(10);
+            }
+        }
+        return seedy;
     }
 
     public int RandomInt(int min, int max){
@@ -39,7 +59,6 @@ public class Generations {
                 a.add(i);
             }
         }
-//        Random random = new Random(Long.parseLong(this.seed));
         int x = a.get(random.nextInt(a.size()-1));
         return x;
     }

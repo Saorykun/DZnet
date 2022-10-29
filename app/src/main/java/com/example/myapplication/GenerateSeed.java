@@ -1,43 +1,85 @@
 package com.example.myapplication;
 
+import java.util.ArrayList;
+
 public class GenerateSeed {
 
     private String seed;
+    private ShifrToSeed shifrToSeed;
+    private StructureGen structureGen;
 
     GenerateSeed(){}
 
-    public Generations generationSeed(String seedVol,String[] Enter_task,int[] Vol_task){
-        Shifr_To_Seed shifr_to_seed = new Shifr_To_Seed();
-        if(seedVol=="0"){
+    public Generations generationSeed(StructureGen structureGen){
+        this.structureGen = structureGen;
+        this.seed=structureGen.getSeedVol();
+        this.shifrToSeed = new ShifrToSeed(structureGen.getEnterVarVol());
+        if(structureGen.getSeedVol()==""){
             Boolean flag=true;
-            int k=0;
-            int[] mass = new int[Enter_task.length*2+1];
+            ArrayList<String> mass = new ArrayList<>();
             this.seed = Integer.toString((int) System.currentTimeMillis());
-            for(int i=0; i<Enter_task.length*2+1;i++){
-                if(i==0){
-                    mass[i]=Integer.parseInt(seed);
+            mass.add(seed);
+            int i=0;
+            for (int ent=0;ent<structureGen.getSumEnter();ent++,i++){
+                int tmp=0;
+                for(int numName=0;numName<structureGen.getSumEnter();numName++) {
+                    for (int r = 0; r < structureGen.getSumVar(numName); r++) {
+                        if (structureGen.getEnterVarVol().get(numName).getVar().get(r) >= 10) {
+                            mass.add(Integer.toString(structureGen.getEnterVarVol().get(numName).getVar().get(r)));
+                        } else {
+                            mass.add( "0" + structureGen.getEnterVarVol().get(numName).getVar().get(r));
+                        }
+                        i++;
+                        tmp++;
+                    }
                 }
-                else{
-                    if(flag){
-                        mass[i]=Integer.parseInt(Enter_task[k]);
-                        flag=!flag;
+                for(int numName=0;numName<structureGen.getSumEnter();numName++) {
+                    for (int r = 0; r < structureGen.getSumVol(numName); r++) {
+                        if(structureGen.getEnterVarVol().get(numName).getVol().get(r)>=10){
+                            mass.add(Integer.toString(structureGen.getEnterVarVol().get(numName).getVol().get(r)));
+                        }
+                        else {
+                            mass.add("0"+structureGen.getEnterVarVol().get(numName).getVol().get(r));
+                        }
+                        i++;
+                        tmp++;
                     }
-                    else{
-                        mass[i]=Vol_task[k];
-                        flag=!flag;
-                        k++;
-                    }
+                }
+                if(tmp>=10)
+                    mass.add(Integer.toString(tmp));
+                else
+                    mass.add("0"+tmp);
+
+                i++;
+
+                if((structureGen.getEnterVarVol().get(ent).getName()).length()>=2){
+                    mass.add(structureGen.getEnterVarVol().get(ent).getName());
+                }
+                else {
+                    mass.add("0"+structureGen.getEnterVarVol().get(ent).getName().substring(0,2));
                 }
             }
 
-            this.seed=shifr_to_seed.unity(mass);
+            if(structureGen.getSumEnter()>=10)
+                mass.add(Integer.toString(structureGen.getSumEnter()));
+            else
+                mass.add("0"+structureGen.getSumEnter());
+
+            this.seed=shifrToSeed.unity(mass);
         }
         else{
-            Vol_task= shifr_to_seed.getVol_task(seedVol);
-            Enter_task=shifr_to_seed.getEnter_task(seedVol);
-            this.seed=seedVol;
+
+            structureGen.setEnterVarVol(shifrToSeed.getEnterVarVol(seed));
+            this.seed=structureGen.getSeedVol();
         }
         Generations generations = new Generations(seed);
         return generations;
     }
+
+//    public StructureGen getStructureGen(){
+//        this.structureGen.setVol_task(shifrToSeed.getVol_task(structureGen.getSeedVol()));
+//        this.structureGen.setEnter_task(shifrToSeed.getEnter_task(structureGen.getSeedVol()));
+//
+//        return structureGen;
+//    }
 }

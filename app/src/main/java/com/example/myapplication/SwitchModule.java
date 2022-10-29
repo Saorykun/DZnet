@@ -6,7 +6,7 @@ public class SwitchModule {
 
     public Structure_Task getTask(String module, int var, Generations generations){
         switch (module){
-            case("ОГЭ_6"):{
+            case("g6"):{
                 Structure_Task struct = SwitchOgeN6.getTask(var,generations);
                 return struct;
             }

@@ -4,13 +4,13 @@ import com.example.myapplication.Generation;
 
 import java.util.Random;
 
-public class OGE_6 implements Taskable{
+public class Oge_6_Var_1 implements Taskable{
 
     private final String Id = "ОГЭ_6";
     private Structure_Task task;
     private Generations generation;
 
-    OGE_6(Generations generation){
+    Oge_6_Var_1(Generations generation){
         this.generation=generation;
     }
 

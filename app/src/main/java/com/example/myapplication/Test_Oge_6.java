@@ -34,10 +34,7 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
         }
     }
     //Tmp var
-    String[] Enter_task={"6","6"};
-    int[] Var_task={1,1};
-    int[] Vol_task={1,1};
-    String seedVol="0";
+    StructureGen structureGen;
 
     //Ever var
     ArrayList<String> right_answers = new ArrayList<>();;
@@ -45,16 +42,36 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
     int rightAnswer =0;
 
     //Self var
-    String Module ="ОГЭ_6";
+    String Module ="ОГЭ_6"; //Модуль - это критерий по которому генерируются только вариации одного номера заданий из огэ
+                            //исключает Enter_task, то есть все равно какой он
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_oge6);
 
+        String seedVol="";
+
+        String[] Enter_task={"g6","g6","g6"};
+
+        ArrayList<Integer> Var_task = new ArrayList<>();
+        ArrayList<Integer> Vol_task= new ArrayList<>();
+
+        Var_task.add(1);
+        Vol_task.add(1);
+        Var_task.add(1);
+        Vol_task.add(1);
+
+        int n=3;
+        ArrayList<EnterVarVol> enterVarVols =new ArrayList<EnterVarVol>();
+        for(int i=0;i<n;i++){
+            enterVarVols.add(new EnterVarVol(Enter_task[i],Var_task,Vol_task));
+        }
+        this.structureGen=new StructureGen(enterVarVols,seedVol);
+
         GenerateSeed generateSeed = new GenerateSeed();
-        Generations generations = generateSeed.generationSeed(seedVol,Enter_task,Vol_task);
-        GenerateLayout generateLayout = new GenerateLayout(getApplicationContext(),generations,Enter_task,Vol_task,Var_task,Module);
+        Generations generations = generateSeed.generationSeed(structureGen);
+        GenerateLayout generateLayout = new GenerateLayout(getApplicationContext(),generations,this.structureGen,Module);
         generateLayout.setListener2(this);
         setContentView(generateLayout.createLayout());
         int i=0;
@@ -65,8 +82,7 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
         Intent intent = new Intent(this, test.class);
         volAnswer++;
         int sumMaxAnswer=0;
-        for(int i =0;i<Vol_task.length;i++)
-            sumMaxAnswer+=Vol_task[i];
+        sumMaxAnswer=structureGen.getSumAllVol();
         if (volAnswer == sumMaxAnswer) {
             globalVariable.setModule(Module, (int)((double)rightAnswer/volAnswer*100));
             startActivity(intent);

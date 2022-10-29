@@ -30,19 +30,18 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1{
     ArrayList<String> right_answers;
     LinearLayout god;
     String[] enter_task;
-    int[] vol_task;
+    ArrayList<Integer> var_task;
+    ArrayList<Integer> vol_task;
     Generations generations;
     Context context;
     String module;
-    int[] var_task;
+    StructureGen structureGen;
 
-    GenerateLayout(Context context,Generations generations, String[] enter_task, int[] vol_task, int[] var_task, String module){
+    GenerateLayout(Context context,Generations generations, StructureGen structureGen, String module){
         this.context = context;
         this.generations=generations;
-        this.enter_task=enter_task;
-        this.vol_task=vol_task;
         this.module=module;
-        this.var_task=var_task;
+        this.structureGen=structureGen;
     }
 
     public ScrollView createLayout(){
@@ -61,13 +60,15 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1{
         return scr;
     }
     private void generationOrder(){
-        for(int i=0; i<enter_task.length;i++){
-            for(int j=vol_task[i];j!=0;j--) {
-                CreateStructureTask structureTask = new CreateStructureTask();
-                structureTask.setListener(this);
-                listener.loadRightAnswer2(tmpAnswer,false,false);
-                god.addView(structureTask.getStructure(context,enter_task[i],var_task[i],generations,module));
-                addLineSeperator(god);
+        for(int i=0; i<structureGen.getEnterVarVol().size();i++){
+            for(int r=0;r<structureGen.getEnterVarVol().get(i).getVar().size();r++) {
+                for (int j = 0;j<structureGen.getEnterVarVol().get(i).getVol().get(r); j++) {
+                    CreateStructureTask structureTask = new CreateStructureTask();
+                    structureTask.setListener(this);
+                    listener.loadRightAnswer2(tmpAnswer, false, false);
+                    god.addView(structureTask.getStructure(context, structureGen.getEnterVarVol().get(i).getName(), structureGen.getEnterVarVol().get(i).getVar().get(r), generations, module));
+                    addLineSeperator(god);
+                }
             }
         }
     }
