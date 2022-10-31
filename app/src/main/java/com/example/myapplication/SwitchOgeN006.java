@@ -9,7 +9,7 @@ public class SwitchOgeN006 implements Testable{
 
     public Structure_Task getTask(String var, Generations generations) {
         int min = 1;
-        int max = 2;
+        int max = 3;
         String r = var;
         if(r=="r"){
             r = Integer.toString(generations.RandomInt(min, max));
@@ -28,21 +28,5 @@ public class SwitchOgeN006 implements Testable{
         catch (ClassNotFoundException e) {e.printStackTrace();}
         catch (InstantiationException e) {e.printStackTrace();}
         return null;
-//        while (true)
-//            switch (r) {
-//                case ("1"): {
-//                    Oge_6_Var_1 oge_6 = new Oge_6_Var_1(generations);
-//                    Structure_Task struct = oge_6.getTask();
-//                    return struct;
-//                }
-//                case ("2"): {
-//                    Oge_6_Var_2 oge_6 = new Oge_6_Var_2(generations);
-//                    Structure_Task struct = oge_6.getTask();
-//                    return struct;
-//                }
-//                default: {
-//                    r = Integer.toString(generations.RandomInt(min, max));
-//                }
-//            }
     }
 }

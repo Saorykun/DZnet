@@ -50,10 +50,6 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
 
         Var_task.add("r");
         Vol_task.add(3);
-        Var_task.add("1");
-        Vol_task.add(3);
-        Var_task.add("2");
-        Vol_task.add(3);
 
         int n = Enter_task.length;
         ArrayList<EnterVarVol> enterVarVols = new ArrayList<EnterVarVol>();

@@ -15,26 +15,26 @@ public class GlobalClass extends Application {
         myEditor.commit();
     }
 
-    public int getRightAnswer(String module, int estimation) {                                        //Возврат
+    public int getRightAnswer(String module) {                                        //Возврат
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("RightAnswer" + module, 0);
+        try{
+            return myPreferences.getInt("RightAnswer" + module, 0);
+        }catch (Exception ex){
+            myPreferences.getInt("RightAnswer" + module, 0);
+            return myPreferences.getInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0));
+        }
     }
 
     public void setRightAnswerPlus(String module, int estimation) {                                   //Добавление к существующим
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        try {
-            myEditor.putInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0) + estimation);
-        } catch (Exception ex) {
-            myEditor.putInt("RightAnswer" + module, 0);
-            myEditor.putInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0) + estimation);
-        }
+        myEditor.putInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0) + estimation);
         myEditor.commit();
     }
 
-    //Сохранение, увеличение и возврат КОЛИЧЕСТВА ВЕРНО РЕШЕННЫХ
+    //Сохранение, увеличение и возврат КОЛИЧЕСТВА РЕШЕННЫХ
     public void setVolAnswer(String module, int estimation) {                                       //Установление
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
@@ -43,10 +43,15 @@ public class GlobalClass extends Application {
         myEditor.commit();
     }
 
-    public int getVolAnswer(String module, int estimation) {                                        //Возврат
+    public int getVolAnswer(String module) {                                        //Возврат
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("VolAnswer" + module, 0);
+        try{
+            return myPreferences.getInt("VolAnswer" + module, 0);
+        }catch (Exception ex){
+            myPreferences.getInt("VolAnswer" + module, 0);
+            return myPreferences.getInt("VolAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0));
+        }
     }
 
     public void setVolAnswerPlus(String module, int estimation) {                                   //Добавление к существующим
@@ -96,14 +101,14 @@ public class GlobalClass extends Application {
     public int getModule(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("tema" + number_module, 0);
+        return myPreferences.getInt("Module" + number_module, 0);
     }
 
     public void setModule(String number_module, int estimation) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt(("tema" + number_module), estimation);
+        myEditor.putInt(("Module" + number_module), estimation);
         myEditor.commit();
     }
 
