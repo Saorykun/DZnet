@@ -11,23 +11,25 @@ public class GlobalClass extends Application {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("RightAnswer"+ module, estimation);
+        myEditor.putInt("RightAnswer" + module, estimation);
         myEditor.commit();
     }
+
     public int getRightAnswer(String module, int estimation) {                                        //Возврат
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("RightAnswer"+ module, 0);
+        return myPreferences.getInt("RightAnswer" + module, 0);
     }
+
     public void setRightAnswerPlus(String module, int estimation) {                                   //Добавление к существующим
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
         try {
-            myEditor.putInt("RightAnswer"+ module, myPreferences.getInt("RightAnswer"+ module, 0)+estimation);
-        }catch (Exception ex){
-            myEditor.putInt("RightAnswer"+ module, 0);
-            myEditor.putInt("RightAnswer"+ module, myPreferences.getInt("RightAnswer"+ module, 0)+estimation);
+            myEditor.putInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0) + estimation);
+        } catch (Exception ex) {
+            myEditor.putInt("RightAnswer" + module, 0);
+            myEditor.putInt("RightAnswer" + module, myPreferences.getInt("RightAnswer" + module, 0) + estimation);
         }
         myEditor.commit();
     }
@@ -37,23 +39,25 @@ public class GlobalClass extends Application {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("VolAnswer"+ module, estimation);
+        myEditor.putInt("VolAnswer" + module, estimation);
         myEditor.commit();
     }
+
     public int getVolAnswer(String module, int estimation) {                                        //Возврат
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("VolAnswer"+ module, 0);
+        return myPreferences.getInt("VolAnswer" + module, 0);
     }
+
     public void setVolAnswerPlus(String module, int estimation) {                                   //Добавление к существующим
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
         try {
-            myEditor.putInt("VolAnswer"+ module, myPreferences.getInt("VolAnswer"+ module, 0)+estimation);
-        }catch (Exception ex){
-            myEditor.putInt("VolAnswer"+ module, 0);
-            myEditor.putInt("VolAnswer"+ module, myPreferences.getInt("VolAnswer"+ module, 0)+estimation);
+            myEditor.putInt("VolAnswer" + module, myPreferences.getInt("VolAnswer" + module, 0) + estimation);
+        } catch (Exception ex) {
+            myEditor.putInt("VolAnswer" + module, 0);
+            myEditor.putInt("VolAnswer" + module, myPreferences.getInt("VolAnswer" + module, 0) + estimation);
         }
         myEditor.commit();
     }
@@ -62,8 +66,9 @@ public class GlobalClass extends Application {
     public Boolean getModeAttempt() {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getBoolean("AttemptMode",false);
+        return myPreferences.getBoolean("AttemptMode", false);
     }
+
     public void setModeAttempt(Boolean b) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
@@ -78,6 +83,7 @@ public class GlobalClass extends Application {
                 = PreferenceManager.getDefaultSharedPreferences(this);
         return myPreferences.getBoolean("blind", false);
     }
+
     public void setBlind(boolean blind) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
@@ -90,13 +96,14 @@ public class GlobalClass extends Application {
     public int getModule(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("tema"+ number_module,0);
+        return myPreferences.getInt("tema" + number_module, 0);
     }
+
     public void setModule(String number_module, int estimation) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt(("tema"+ number_module), estimation);
+        myEditor.putInt(("tema" + number_module), estimation);
         myEditor.commit();
     }
 
@@ -104,20 +111,22 @@ public class GlobalClass extends Application {
     public int getAttempt(int number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("tema_attempt"+ number_module,0);
+        return myPreferences.getInt("tema_attempt" + number_module, 0);
     }
+
     public void setAttempt(int number_module, int number) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt(("tema_attempt"+ number_module), number);
+        myEditor.putInt(("tema_attempt" + number_module), number);
         myEditor.commit();
     }
+
     public void setAttemptMinus(int number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("tema_attempt"+ number_module, myPreferences.getInt("tema_attempt"+ number_module,0)-1);
+        myEditor.putInt("tema_attempt" + number_module, myPreferences.getInt("tema_attempt" + number_module, 0) - 1);
         myEditor.commit();
     }
 
@@ -127,7 +136,7 @@ public class GlobalClass extends Application {
                 = PreferenceManager.getDefaultSharedPreferences(this);
         int a = 0;
         for (int i = 0; i < 200; i++) {
-            if(myPreferences.getInt("tema" + i, 0)!=0) {
+            if (myPreferences.getInt("tema" + i, 0) != 0) {
                 a++;
             }
         }
@@ -135,37 +144,41 @@ public class GlobalClass extends Application {
     }
 
     //Удалить скоро
-    public void DelNum(String number_module){
+    public void DelNum(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("tema_NumTrue"+ number_module, 0);
-        myEditor.putInt("tema_Num"+ number_module, 0);
+        myEditor.putInt("tema_NumTrue" + number_module, 0);
+        myEditor.putInt("tema_Num" + number_module, 0);
         myEditor.commit();
     }
-    public void NumPlus(String number_module){
+
+    public void NumPlus(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("tema_Num"+ number_module, myPreferences.getInt("tema_Num"+ number_module,0)+1);
+        myEditor.putInt("tema_Num" + number_module, myPreferences.getInt("tema_Num" + number_module, 0) + 1);
         myEditor.commit();
     }
-    public int GetNum(String number_module){
+
+    public int GetNum(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("tema_Num"+ number_module,0);
+        return myPreferences.getInt("tema_Num" + number_module, 0);
     }
-    public void NumTruePlus(String number_module){
+
+    public void NumTruePlus(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor myEditor = myPreferences.edit();
-        myEditor.putInt("tema_NumTrue"+ number_module, myPreferences.getInt("tema_NumTrue"+ number_module,0)+1);
+        myEditor.putInt("tema_NumTrue" + number_module, myPreferences.getInt("tema_NumTrue" + number_module, 0) + 1);
         myEditor.commit();
     }
-    public int GetNumTrue(String number_module){
+
+    public int GetNumTrue(String number_module) {
         SharedPreferences myPreferences
                 = PreferenceManager.getDefaultSharedPreferences(this);
-        return myPreferences.getInt("tema_NumTrue"+ number_module,0);
+        return myPreferences.getInt("tema_NumTrue" + number_module, 0);
     }
 //Удалить
 }

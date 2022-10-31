@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema5 extends AppCompatActivity {
     final private String Module = "5";
@@ -34,7 +32,7 @@ public class tema5 extends AppCompatActivity {
         setContentView(R.layout.activity_tema5);
 
 
-        int i,y,z;
+        int i, y, z;
         //#1
         TextView n1 = findViewById(R.id.n1);
         Button bn1 = findViewById(R.id.bn1);
@@ -45,21 +43,20 @@ public class tema5 extends AppCompatActivity {
         i = Generation.RandomInt(5, 10);
         y = Generation.RandomInt(5, 12);
         n1.setText("Принтер печатает одну страницу за " + i +
-                " секунд. Какое наибольшее количество страниц можно напечатать на этом принтере за " + y +" минут?");
-        otv1 = y*60/i;
+                " секунд. Какое наибольшее количество страниц можно напечатать на этом принтере за " + y + " минут?");
+        otv1 = y * 60 / i;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -78,21 +75,20 @@ public class tema5 extends AppCompatActivity {
         i = Generation.RandomInt(5, 10);
         y = Generation.RandomInt(5, 12);
         n2.setText("Принтер печатает одну страницу за " + i +
-                " секунд. Какое наибольшее количество страниц можно напечатать на этом принтере за " + y +" минут?");
-        otv2 = y*60/i;
+                " секунд. Какое наибольшее количество страниц можно напечатать на этом принтере за " + y + " минут?");
+        otv2 = y * 60 / i;
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -109,23 +105,22 @@ public class tema5 extends AppCompatActivity {
         double otv3;
 
         i = Generation.RandomInt(36, 51);
-        y=1000%i+Generation.RandomInt(0,3)*i;
-        n3.setText("На автозаправке клиент отдал кассиру 1000 рублей и попросил залить бензин до полного бака. Цена бензина "+i+
-                " рублей. Сдачи клиент получил "+y+" руб. Сколько литров бензина было залито в бак?");
-        otv3 = (1000-y)/i;
+        y = 1000 % i + Generation.RandomInt(0, 3) * i;
+        n3.setText("На автозаправке клиент отдал кассиру 1000 рублей и попросил залить бензин до полного бака. Цена бензина " + i +
+                " рублей. Сдачи клиент получил " + y + " руб. Сколько литров бензина было залито в бак?");
+        otv3 = (1000 - y) / i;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -142,23 +137,22 @@ public class tema5 extends AppCompatActivity {
         double otv4;
 
         i = Generation.RandomInt(36, 51);
-        y=1000%i+Generation.RandomInt(0,3)*i;
-        n4.setText("На автозаправке клиент отдал кассиру 1000 рублей и попросил залить бензин до полного бака. Цена бензина "+i+
-                " рублей. Сдачи клиент получил "+y+" руб. Сколько литров бензина было залито в бак?");
-        otv4 = (1000-y)/i;
+        y = 1000 % i + Generation.RandomInt(0, 3) * i;
+        n4.setText("На автозаправке клиент отдал кассиру 1000 рублей и попросил залить бензин до полного бака. Цена бензина " + i +
+                " рублей. Сдачи клиент получил " + y + " руб. Сколько литров бензина было залито в бак?");
+        otv4 = (1000 - y) / i;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -176,21 +170,20 @@ public class tema5 extends AppCompatActivity {
 
         i = Generation.RandomInt(4, 8);
         y = Generation.RandomInt(33, 55);
-        n5.setText("В доме, в котором живёт Петя, один подъезд. На каждом этаже по "+i+" квартир. Петя живёт в квартире № " + y+". На каком этаже живёт Петя?");
-        otv5 = y/i+1;
+        n5.setText("В доме, в котором живёт Петя, один подъезд. На каждом этаже по " + i + " квартир. Петя живёт в квартире № " + y + ". На каком этаже живёт Петя?");
+        otv5 = y / i + 1;
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -208,21 +201,20 @@ public class tema5 extends AppCompatActivity {
 
         i = Generation.RandomInt(4, 8);
         y = Generation.RandomInt(33, 55);
-        n6.setText("В доме, в котором живёт Петя, один подъезд. На каждом этаже по "+i+" квартир. Петя живёт в квартире № " + y+". На каком этаже живёт Петя?");
-        otv6 = y/i+1;
+        n6.setText("В доме, в котором живёт Петя, один подъезд. На каждом этаже по " + i + " квартир. Петя живёт в квартире № " + y + ". На каком этаже живёт Петя?");
+        otv6 = y / i + 1;
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -267,6 +259,7 @@ public class tema5 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

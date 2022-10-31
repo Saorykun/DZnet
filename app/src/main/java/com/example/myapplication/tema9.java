@@ -1,20 +1,18 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema9 extends AppCompatActivity {
     final private String Module = "9";
+
     public enum food {
         маком,
         грибами,
@@ -22,6 +20,7 @@ public class tema9 extends AppCompatActivity {
         сливами,
         вишней
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -40,7 +39,7 @@ public class tema9 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tema9);
 
-            int k,b,y;
+        int k, b, y;
 
         TextView n1 = findViewById(R.id.n1);
         Button bn1 = findViewById(R.id.bn1);
@@ -52,25 +51,24 @@ public class tema9 extends AppCompatActivity {
         int p, i, r, x;
         i = Generation.RandomInt(2, 8);
         r = Generation.RandomInt(2, 8);
-        p=i*i*r;
+        p = i * i * r;
 
         n1.setText("Мощность постоянного тока (в ваттах) вычисляется по формуле " +
-                        "P=I"+ "\u00B2"+"R, где I— сила тока (в амперах), R — сопротивление (в омах). " +
-                        "Пользуясь этой формулой, найдите R (в омах), если P="+p+"Вт и I="+i+"А.");
+                "P=I" + "\u00B2" + "R, где I— сила тока (в амперах), R — сопротивление (в омах). " +
+                "Пользуясь этой формулой, найдите R (в омах), если P=" + p + "Вт и I=" + i + "А.");
         otv1 = r;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -88,25 +86,24 @@ public class tema9 extends AppCompatActivity {
 
         i = Generation.RandomInt(2, 8);
         r = Generation.RandomInt(2, 8);
-        p=i*i*r;
+        p = i * i * r;
 
         n2.setText("Мощность постоянного тока (в ваттах) вычисляется по формуле " +
-                "P=I"+ "\u00B2"+"R, где I— сила тока (в амперах), R — сопротивление (в омах). " +
-                "Пользуясь этой формулой, найдите R (в омах), если P="+p+"Вт и I="+i+"А.");
+                "P=I" + "\u00B2" + "R, где I— сила тока (в амперах), R — сопротивление (в омах). " +
+                "Пользуясь этой формулой, найдите R (в омах), если P=" + p + "Вт и I=" + i + "А.");
         otv2 = r;
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -124,25 +121,24 @@ public class tema9 extends AppCompatActivity {
 
         i = Generation.RandomInt(2, 8);
         r = Generation.RandomInt(2, 8);
-        p=i*r;
+        p = i * r;
 
         n3.setText("Второй закон Ньютона можно записать в виде F = ma , где F— сила (в ньютонах), " +
                 "действующая на тело, m— его масса (в килограммах), a— ускорение, с которым движется тело " +
-                "(в м/с\u00B2 ). Найдите m (в килограммах), если F = "+p+"Н и a = "+r+"м/с\u00B2.");
+                "(в м/с\u00B2 ). Найдите m (в килограммах), если F = " + p + "Н и a = " + r + "м/с\u00B2.");
         otv3 = i;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -160,25 +156,24 @@ public class tema9 extends AppCompatActivity {
 
         i = Generation.RandomInt(2, 8);
         r = Generation.RandomInt(2, 8);
-        p=i*r;
+        p = i * r;
 
         n4.setText("Второй закон Ньютона можно записать в виде F = ma , где F— сила (в ньютонах), " +
                 "действующая на тело, m— его масса (в килограммах), a— ускорение, с которым движется тело " +
-                "(в м/с\u00B2 ). Найдите m (в килограммах), если F = "+p+"Н и a = "+r+"м/с\u00B2.");
+                "(в м/с\u00B2 ). Найдите m (в килограммах), если F = " + p + "Н и a = " + r + "м/с\u00B2.");
         otv4 = i;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -198,22 +193,21 @@ public class tema9 extends AppCompatActivity {
         b = Generation.RandomInt(2, 8);
         x = Generation.RandomInt(2, 8);
         n5.setText("Площадь поверхности прямоугольного параллелепипеда с рёбрами " +
-                        "a,b и c  вычисляется по формуле S=2(ab + ac + bc). Найдите площадь " +
-                        "поверхности прямоугольного параллелепипеда с рёбрами "+k+", "+b+" и "+x+".");
-        otv5 = 2*(k*b+b*x+k*x);
+                "a,b и c  вычисляется по формуле S=2(ab + ac + bc). Найдите площадь " +
+                "поверхности прямоугольного параллелепипеда с рёбрами " + k + ", " + b + " и " + x + ".");
+        otv5 = 2 * (k * b + b * x + k * x);
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -234,21 +228,20 @@ public class tema9 extends AppCompatActivity {
         x = Generation.RandomInt(2, 8);
         n6.setText("Площадь поверхности прямоугольного параллелепипеда с рёбрами " +
                 "a,b и c  вычисляется по формуле S=2(ab + ac + bc). Найдите площадь " +
-                "поверхности прямоугольного параллелепипеда с рёбрами "+k+", "+b+" и "+x+".");
-        otv6 = 2*(k*b+b*x+k*x);
+                "поверхности прямоугольного параллелепипеда с рёбрами " + k + ", " + b + " и " + x + ".");
+        otv6 = 2 * (k * b + b * x + k * x);
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -293,6 +286,7 @@ public class tema9 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

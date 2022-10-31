@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema2 extends AppCompatActivity {
     final private String Module = "2";
@@ -193,8 +193,7 @@ public class tema2 extends AppCompatActivity {
                         // check8.setVisibility(View.VISIBLE);
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -246,7 +245,7 @@ public class tema2 extends AppCompatActivity {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on8);
-              //  if ((String.valueOf(otv8).equals(on8.getText().toString()))) {
+                //  if ((String.valueOf(otv8).equals(on8.getText().toString()))) {
                 try {
                     if (otv8 == Double.parseDouble(on8.getText().toString())) {
                         globalVariable.NumTruePlus(Module);
@@ -254,8 +253,7 @@ public class tema2 extends AppCompatActivity {
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check8.setImageResource(R.drawable.red);
                     check8.setVisibility(View.VISIBLE);
                 }
@@ -302,6 +300,7 @@ public class tema2 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema1 extends AppCompatActivity {
     final private String Module = "1";
@@ -23,10 +24,9 @@ public class tema1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        if(globalVariable.isBlind()) {
+        if (globalVariable.isBlind()) {
             setTheme(R.style.Theme_MyApplicationBlind);
-        }
-        else setTheme(R.style.Theme_MyApplication);
+        } else setTheme(R.style.Theme_MyApplication);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tema1);
         globalVariable.DelNum(Module);
@@ -52,32 +52,32 @@ public class tema1 extends AppCompatActivity {
 
         //№1
         //Числитель1 - рандом
-        int i = Generation.RandomInt(1,15);
+        int i = Generation.RandomInt(1, 15);
         C1.setText(String.valueOf(i));
-        val=val+i;
+        val = val + i;
 
         //Числитель2 - рандом
-        i = Generation.RandomInt(1,15);
+        i = Generation.RandomInt(1, 15);
         C2.setText(String.valueOf(i));
-        val=val+i;
+        val = val + i;
 
         //Знаменатели = рандом
-        i = Generation.RandomInt(31,45);
+        i = Generation.RandomInt(31, 45);
         Z1.setText(String.valueOf(i));
         Z2.setText(String.valueOf(i));
         final int a1 = val;
         final int a2 = i;
 
         //№2
-        i = Generation.RandomInt(16,20);
+        i = Generation.RandomInt(16, 20);
         N2C1.setText(String.valueOf(i));
-        Answ2C=i;
+        Answ2C = i;
 
-        i = Generation.RandomInt(1,15);
+        i = Generation.RandomInt(1, 15);
         N2C2.setText(String.valueOf(i));
-        Answ2C=Answ2C-i;
+        Answ2C = Answ2C - i;
 
-        i = Generation.RandomInt(30,45);
+        i = Generation.RandomInt(30, 45);
         N2Z1.setText(String.valueOf(i));
         N2Z2.setText(String.valueOf(i));
 
@@ -96,21 +96,21 @@ public class tema1 extends AppCompatActivity {
         Button Answ3 = findViewById(R.id.answ3);
 
         int Answ3C = 0;
-        i=Generation.RandomInt(10,20);
+        i = Generation.RandomInt(10, 20);
         N3C1.setText(String.valueOf(i));
-        Answ3C=i;
-        i=Generation.RandomInt(1,8);
+        Answ3C = i;
+        i = Generation.RandomInt(1, 8);
         N3C2.setText(String.valueOf(i));
-        Answ3C=Answ3C+i;
-        i=Generation.RandomInt(1,10);
+        Answ3C = Answ3C + i;
+        i = Generation.RandomInt(1, 10);
         N3C3.setText(String.valueOf(i));
-        Answ3C=Answ3C-i;
-        i=Generation.RandomInt(20,30);
+        Answ3C = Answ3C - i;
+        i = Generation.RandomInt(20, 30);
         N3Z1.setText(String.valueOf(i));
         N3Z2.setText(String.valueOf(i));
         N3Z3.setText(String.valueOf(i));
-        final int Answ3Z=i;
-        final int AnswC=Answ3C;
+        final int Answ3Z = i;
+        final int AnswC = Answ3C;
 
         button.setOnClickListener(new View.OnClickListener() {
 
@@ -118,11 +118,10 @@ public class tema1 extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(OtvC);
                 setLock(OtvZ);
-                if ((String.valueOf(a1).equals(OtvC.getText().toString()))&&(String.valueOf(a2).equals(OtvZ.getText().toString()))){
+                if ((String.valueOf(a1).equals(OtvC.getText().toString())) && (String.valueOf(a2).equals(OtvZ.getText().toString()))) {
                     globalVariable.NumTruePlus(Module);
                     chek1.setVisibility(View.VISIBLE);
-                }
-                else{
+                } else {
                     chek1.setImageResource(R.drawable.red);
                     chek1.setVisibility(View.VISIBLE);
                 }
@@ -138,11 +137,10 @@ public class tema1 extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(N2otvC);
                 setLock(N2otvZ);
-                if ((String.valueOf(N2C).equals(N2otvC.getText().toString()))&&(String.valueOf(N2Z).equals(N2otvZ.getText().toString()))){
+                if ((String.valueOf(N2C).equals(N2otvC.getText().toString())) && (String.valueOf(N2Z).equals(N2otvZ.getText().toString()))) {
                     globalVariable.NumTruePlus(Module);
                     chek2.setVisibility(View.VISIBLE);
-                }
-                else{
+                } else {
                     chek2.setImageResource(R.drawable.red);
                     chek2.setVisibility(View.VISIBLE);
                 }
@@ -157,11 +155,10 @@ public class tema1 extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(N3otvC);
                 setLock(N3otvZ);
-                if ((String.valueOf(Answ3Z).equals(N3otvZ.getText().toString()))&&(String.valueOf(AnswC).equals(N3otvC.getText().toString()))){
+                if ((String.valueOf(Answ3Z).equals(N3otvZ.getText().toString())) && (String.valueOf(AnswC).equals(N3otvC.getText().toString()))) {
                     globalVariable.NumTruePlus(Module);
                     chek3.setVisibility(View.VISIBLE);
-                }
-                else{
+                } else {
                     chek3.setImageResource(R.drawable.red);
                     chek3.setVisibility(View.VISIBLE);
                 }
@@ -171,10 +168,10 @@ public class tema1 extends AppCompatActivity {
         });
     }
 
-    private void Check(GlobalClass globalVariable){
+    private void Check(GlobalClass globalVariable) {
         Intent i1 = new Intent(this, test.class);
         globalVariable.NumPlus(Module);
-        if(globalVariable.GetNum(Module)==3) {
+        if (globalVariable.GetNum(Module) == 3) {
             switch (globalVariable.GetNumTrue(Module)) {
                 case (0): {
                     globalVariable.setModule(Module, 2);
@@ -200,10 +197,12 @@ public class tema1 extends AppCompatActivity {
             finish();
         }
     }
-    private void setLock(EditText context){
+
+    private void setLock(EditText context) {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

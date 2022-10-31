@@ -3,17 +3,19 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
-import com.google.android.material.navigation.NavigationView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapplication.databinding.ActivityTestBinding;
+import com.google.android.material.navigation.NavigationView;
 
 public class test extends AppCompatActivity {
 
@@ -41,7 +43,7 @@ public class test extends AppCompatActivity {
                 // отвечает за майл
                 final Intent emailIntent = new Intent(android.content.Intent.ACTION_SENDTO);
                 emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
-                        new String[] { "igor_kulakov_yu@mail.ru" });
+                        new String[]{"igor_kulakov_yu@mail.ru"});
                 emailIntent.setData(Uri.parse("mailto:"));
                 if (emailIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(emailIntent);

@@ -1,20 +1,18 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema10 extends AppCompatActivity {
     final private String Module = "10";
+
     public enum food {
         маком,
         грибами,
@@ -22,6 +20,7 @@ public class tema10 extends AppCompatActivity {
         сливами,
         вишней
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -40,7 +39,7 @@ public class tema10 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tema10);
 
-        int k,b,y;
+        int k, b, y;
 
         TextView n1 = findViewById(R.id.n1);
         Button bn1 = findViewById(R.id.bn1);
@@ -52,26 +51,25 @@ public class tema10 extends AppCompatActivity {
         int p, i, r, x;
         r = Generation.RandomInt(8, 12);
         i = Generation.RandomInt(4, 7);
-        if((i%2!=0)||(r%2!=0)){
+        if ((i % 2 != 0) || (r % 2 != 0)) {
             r = Generation.RandomInt(8, 12);
             i = Generation.RandomInt(4, 7);
         }
-        n1.setText(r+" столбов соединены между собой проводами так, что от каждого " +
-                "столба отходит ровно "+i+" проводов. Сколько всего проводов протянуто между этими "+r+" столбами?");
-        otv1 = r*i/2;
+        n1.setText(r + " столбов соединены между собой проводами так, что от каждого " +
+                "столба отходит ровно " + i + " проводов. Сколько всего проводов протянуто между этими " + r + " столбами?");
+        otv1 = r * i / 2;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -89,26 +87,25 @@ public class tema10 extends AppCompatActivity {
 
         r = Generation.RandomInt(8, 12);
         i = Generation.RandomInt(4, 7);
-        if((i%2!=0)||(r%2!=0)){
+        if ((i % 2 != 0) || (r % 2 != 0)) {
             r = Generation.RandomInt(8, 12);
             i = Generation.RandomInt(4, 7);
         }
-        n2.setText(r+" столбов соединены между собой проводами так, что от каждого " +
-                "столба отходит ровно "+i+" проводов. Сколько всего проводов протянуто между этими "+r+" столбами?");
-        otv2 = r*i/2;
+        n2.setText(r + " столбов соединены между собой проводами так, что от каждого " +
+                "столба отходит ровно " + i + " проводов. Сколько всего проводов протянуто между этими " + r + " столбами?");
+        otv2 = r * i / 2;
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -126,22 +123,21 @@ public class tema10 extends AppCompatActivity {
 
         i = Generation.RandomInt(10, 20);
         r = Generation.RandomInt(10, 20);
-        n3.setText("На поверхности глобуса фломастером проведены "+i+" параллелей и "+r+" меридианов. На сколько частей проведённые линии разделили поверхность глобуса?"+
+        n3.setText("На поверхности глобуса фломастером проведены " + i + " параллелей и " + r + " меридианов. На сколько частей проведённые линии разделили поверхность глобуса?" +
                 "Меридиан — это дуга окружности, соединяющая Северный и Южный полюсы. Параллель — это окружность, лежащая в плоскости, параллельной плоскости экватора.");
-        otv3 = (i+1)*r;
+        otv3 = (i + 1) * r;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -159,22 +155,21 @@ public class tema10 extends AppCompatActivity {
 
         i = Generation.RandomInt(10, 20);
         r = Generation.RandomInt(10, 20);
-        n4.setText("На поверхности глобуса фломастером проведены "+i+" параллелей и "+r+" меридианов. На сколько частей проведённые линии разделили поверхность глобуса?"+
+        n4.setText("На поверхности глобуса фломастером проведены " + i + " параллелей и " + r + " меридианов. На сколько частей проведённые линии разделили поверхность глобуса?" +
                 "Меридиан — это дуга окружности, соединяющая Северный и Южный полюсы. Параллель — это окружность, лежащая в плоскости, параллельной плоскости экватора.");
-        otv4 = (i+1)*r;
+        otv4 = (i + 1) * r;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -193,21 +188,20 @@ public class tema10 extends AppCompatActivity {
 
         a = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(10, 20);
-        n5.setText("Взяли несколько досок и распилили их. Всего сделали "+a+" поперечных распилов, в итоге получилось "+b+" кусков. Сколько досок взяли?");
-        otv5 = b-a;
+        n5.setText("Взяли несколько досок и распилили их. Всего сделали " + a + " поперечных распилов, в итоге получилось " + b + " кусков. Сколько досок взяли?");
+        otv5 = b - a;
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -225,21 +219,20 @@ public class tema10 extends AppCompatActivity {
 
         a = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(10, 20);
-        n6.setText("Взяли несколько досок и распилили их. Всего сделали "+a+" поперечных распилов, в итоге получилось "+b+" кусков. Сколько досок взяли?");
-        otv6 = b-a;
+        n6.setText("Взяли несколько досок и распилили их. Всего сделали " + a + " поперечных распилов, в итоге получилось " + b + " кусков. Сколько досок взяли?");
+        otv6 = b - a;
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -284,6 +277,7 @@ public class tema10 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

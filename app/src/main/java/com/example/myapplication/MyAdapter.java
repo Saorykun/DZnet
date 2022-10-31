@@ -13,7 +13,7 @@ public class MyAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return(PageFragment.newInstance(position));
+        return (PageFragment.newInstance(position));
     }
 
     @Override

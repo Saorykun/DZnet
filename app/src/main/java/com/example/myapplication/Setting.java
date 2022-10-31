@@ -1,13 +1,13 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import java.io.File;
 
@@ -16,10 +16,9 @@ public class Setting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         GlobalClass globalVariable = (GlobalClass) getApplicationContext();
-        if(globalVariable.isBlind()) {
+        if (globalVariable.isBlind()) {
             setTheme(R.style.Theme_MyApplicationBlind);
-        }
-        else setTheme(R.style.Theme_MyApplication);
+        } else setTheme(R.style.Theme_MyApplication);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         CheckBox checkBoxForBlind = findViewById(R.id.checkBoxForBlind);
@@ -27,10 +26,9 @@ public class Setting extends AppCompatActivity {
 
         checkBoxForBlind.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(checkBoxForBlind.isChecked()){
+                if (checkBoxForBlind.isChecked()) {
                     recreate();
-                }
-                else{
+                } else {
                     recreate();
                 }
                 globalVariable.setBlind(checkBoxForBlind.isChecked());
@@ -38,10 +36,9 @@ public class Setting extends AppCompatActivity {
         });
         infinityAttempt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(infinityAttempt.isChecked()){
+                if (infinityAttempt.isChecked()) {
                     recreate();
-                }
-                else{
+                } else {
                     recreate();
                 }
                 globalVariable.setModeAttempt(!infinityAttempt.isChecked());
@@ -55,16 +52,16 @@ public class Setting extends AppCompatActivity {
         Button setting = findViewById(R.id.setting);
         setting.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                globalVariable.setAttempt(1,100);
-                globalVariable.setAttempt(2,100);
-                globalVariable.setAttempt(3,100);
-                globalVariable.setAttempt(4,100);
-                globalVariable.setAttempt(5,100);
-                globalVariable.setAttempt(6,100);
-                globalVariable.setAttempt(7,100);
-                globalVariable.setAttempt(8,100);
-                globalVariable.setAttempt(9,100);
-                globalVariable.setAttempt(10,100);
+                globalVariable.setAttempt(1, 100);
+                globalVariable.setAttempt(2, 100);
+                globalVariable.setAttempt(3, 100);
+                globalVariable.setAttempt(4, 100);
+                globalVariable.setAttempt(5, 100);
+                globalVariable.setAttempt(6, 100);
+                globalVariable.setAttempt(7, 100);
+                globalVariable.setAttempt(8, 100);
+                globalVariable.setAttempt(9, 100);
+                globalVariable.setAttempt(10, 100);
                 startActivity(a);
                 finish();
             }
@@ -82,7 +79,9 @@ public class Setting extends AppCompatActivity {
                 try {
                     File dir = getApplicationContext().getCacheDir();
                     deleteDir(dir);
-                } catch (Exception e) { e.printStackTrace();}
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         Button DelDataALL = findViewById(R.id.DelDataALL);
@@ -105,7 +104,7 @@ public class Setting extends AppCompatActivity {
                 }
             }
             return dir.delete();
-        } else if(dir!= null && dir.isFile()) {
+        } else if (dir != null && dir.isFile()) {
             return dir.delete();
         } else {
             return false;

@@ -2,6 +2,6 @@ package com.example.myapplication;
 
 public interface Taskable {
 
-    public Structure_Task getTask();
+    Structure_Task getTask(Generations generations);
 
 }

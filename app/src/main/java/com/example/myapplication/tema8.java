@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +8,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema8 extends AppCompatActivity {
     final private String Module = "8";
+
     public enum food {
         маком,
         грибами,
@@ -21,6 +20,7 @@ public class tema8 extends AppCompatActivity {
         сливами,
         вишней
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -44,7 +44,7 @@ public class tema8 extends AppCompatActivity {
         Button bn1 = findViewById(R.id.bn1);
         EditText on1 = findViewById(R.id.on1);
         ImageView check1 = findViewById(R.id.check1);
-        double otv1,i;
+        double otv1, i;
 
         //#1
         int k, b, y, x;
@@ -52,23 +52,22 @@ public class tema8 extends AppCompatActivity {
         b = Generation.RandomInt(2, 8);
         x = Generation.RandomInt(2, 8);
 
-        n1.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". \nНайди значение функции при значении аргумента равном "+
+        n1.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". \nНайди значение функции при значении аргумента равном " +
                 x);
-        otv1 = k*x+b;
+        otv1 = k * x + b;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -87,9 +86,9 @@ public class tema8 extends AppCompatActivity {
         k = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(2, 8);
         x = Generation.RandomInt(2, 8);
-        y=k*x+b;
-        n2.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". \nНайди значение аргумента при значении функции равном "+
+        y = k * x + b;
+        n2.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". \nНайди значение аргумента при значении функции равном " +
                 y);
         otv2 = x;
         bn2.setOnClickListener(new View.OnClickListener() {
@@ -97,14 +96,13 @@ public class tema8 extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -122,32 +120,30 @@ public class tema8 extends AppCompatActivity {
 
         k = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(2, 8);
-        if(Generation.RandomInt(1,2)==1){
-            x=Generation.RandomInt(1,10);
-            y=k*x+b;
+        if (Generation.RandomInt(1, 2) == 1) {
+            x = Generation.RandomInt(1, 10);
+            y = k * x + b;
             otv3 = 1;
-        }
-        else{
-            x=Generation.RandomInt(1,10);
-            y=k*x+b+Generation.RandomInt(1,10);
+        } else {
+            x = Generation.RandomInt(1, 10);
+            y = k * x + b + Generation.RandomInt(1, 10);
             otv3 = 0;
         }
-        n3.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". Проходит ли график функции через точку: А("+
-                x+";"+y+"). Если проходит, то запиши в ответ 1, если не проходит, то 0.");
+        n3.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". Проходит ли график функции через точку: А(" +
+                x + ";" + y + "). Если проходит, то запиши в ответ 1, если не проходит, то 0.");
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -167,23 +163,22 @@ public class tema8 extends AppCompatActivity {
         b = Generation.RandomInt(2, 8);
         x = Generation.RandomInt(2, 8);
 
-        n4.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". \nНайди значение функции при значении аргумента равном "+
+        n4.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". \nНайди значение функции при значении аргумента равном " +
                 x);
-        otv4 = k*x+b;
+        otv4 = k * x + b;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -202,9 +197,9 @@ public class tema8 extends AppCompatActivity {
         k = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(2, 8);
         x = Generation.RandomInt(2, 8);
-        y=k*x+b;
-        n5.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". \nНайди значение аргумента при значении функции равном "+
+        y = k * x + b;
+        n5.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". \nНайди значение аргумента при значении функции равном " +
                 y);
         otv5 = x;
         bn5.setOnClickListener(new View.OnClickListener() {
@@ -212,14 +207,13 @@ public class tema8 extends AppCompatActivity {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -237,32 +231,30 @@ public class tema8 extends AppCompatActivity {
 
         k = Generation.RandomInt(2, 8);
         b = Generation.RandomInt(2, 8);
-        if(Generation.RandomInt(1,2)==1){
-            x=Generation.RandomInt(1,10);
-            y=k*x+b;
+        if (Generation.RandomInt(1, 2) == 1) {
+            x = Generation.RandomInt(1, 10);
+            y = k * x + b;
             otv6 = 1;
-        }
-        else{
-            x=Generation.RandomInt(1,10);
-            y=k*x+b+Generation.RandomInt(1,10);
+        } else {
+            x = Generation.RandomInt(1, 10);
+            y = k * x + b + Generation.RandomInt(1, 10);
             otv6 = 0;
         }
-        n6.setText("Функция задана формулой: \ny = " + k + "x + "+b+
-                ". Проходит ли график функции через точку: А("+
-                x+";"+y+"). Если проходит, то запиши в ответ 1, если не проходит, то 0.");
+        n6.setText("Функция задана формулой: \ny = " + k + "x + " + b +
+                ". Проходит ли график функции через точку: А(" +
+                x + ";" + y + "). Если проходит, то запиши в ответ 1, если не проходит, то 0.");
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -307,6 +299,7 @@ public class tema8 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

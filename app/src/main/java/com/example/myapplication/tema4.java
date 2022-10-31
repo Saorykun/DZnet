@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +8,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema4 extends AppCompatActivity {
     final private String Module = "4";
+
     public enum food {
         маком,
         грибами,
@@ -21,6 +20,7 @@ public class tema4 extends AppCompatActivity {
         сливами,
         вишней
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -50,40 +50,39 @@ public class tema4 extends AppCompatActivity {
         int i, y, n;
         i = Generation.RandomInt(2, 15);
         y = Generation.RandomInt(2, 25);
-        int s=Generation.RandomMul(200);
-        while(s<=(i+y))
-            s=Generation.RandomMul(200);
-        n = s-i-y;
+        int s = Generation.RandomMul(200);
+        while (s <= (i + y))
+            s = Generation.RandomMul(200);
+        n = s - i - y;
         int[] tmp1 = {i, y, n};
-        int nf1= Generation.RandomInt(0,4);
-        int nf2= Generation.RandomInt(0,4);
-        int nf3= Generation.RandomInt(0,4);
-        while ((nf1==nf2)||(nf1==nf3)||(nf3==nf2)) {
+        int nf1 = Generation.RandomInt(0, 4);
+        int nf2 = Generation.RandomInt(0, 4);
+        int nf3 = Generation.RandomInt(0, 4);
+        while ((nf1 == nf2) || (nf1 == nf3) || (nf3 == nf2)) {
             nf2 = Generation.RandomInt(0, 4);
-            nf3= Generation.RandomInt(0,4);
+            nf3 = Generation.RandomInt(0, 4);
         }
         int[] tmp2 = {nf1, nf2, nf3};
-        int qw = Generation.RandomInt(0,2);
-        n1.setText("Бабушка испекла пирожки: " + i + " с "+
-                food.values()[nf1].toString()+", " + y + " с "+
-                food.values()[nf2].toString()+" и " + n + " с "+
-                food.values()[nf3].toString()+
-                ". Какая вероятность случайно выбрать пирожок с "+
+        int qw = Generation.RandomInt(0, 2);
+        n1.setText("Бабушка испекла пирожки: " + i + " с " +
+                food.values()[nf1].toString() + ", " + y + " с " +
+                food.values()[nf2].toString() + " и " + n + " с " +
+                food.values()[nf3].toString() +
+                ". Какая вероятность случайно выбрать пирожок с " +
                 food.values()[tmp2[qw]].toString());
-        otv1 = (double) tmp1[qw]/s;
+        otv1 = (double) tmp1[qw] / s;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -101,44 +100,43 @@ public class tema4 extends AppCompatActivity {
 
         i = Generation.RandomInt(2, 15);
         y = Generation.RandomInt(2, 25);
-        s=Generation.RandomMul(200);
-        while(s<=(i+y))
-            s=Generation.RandomMul(200);
-        n = s-i-y;
-        tmp1[0] =i;
-        tmp1[1] =y;
-        tmp1[2] =n;
-        nf1= Generation.RandomInt(0,4);
-        nf2= Generation.RandomInt(0,4);
-        nf3= Generation.RandomInt(0,4);
-        while ((nf1==nf2)||(nf1==nf3)||(nf3==nf2)) {
+        s = Generation.RandomMul(200);
+        while (s <= (i + y))
+            s = Generation.RandomMul(200);
+        n = s - i - y;
+        tmp1[0] = i;
+        tmp1[1] = y;
+        tmp1[2] = n;
+        nf1 = Generation.RandomInt(0, 4);
+        nf2 = Generation.RandomInt(0, 4);
+        nf3 = Generation.RandomInt(0, 4);
+        while ((nf1 == nf2) || (nf1 == nf3) || (nf3 == nf2)) {
             nf2 = Generation.RandomInt(0, 4);
-            nf3= Generation.RandomInt(0,4);
+            nf3 = Generation.RandomInt(0, 4);
         }
         tmp2[0] = nf3;
         tmp2[1] = nf2;
         tmp2[2] = nf3;
-        qw = Generation.RandomInt(0,2);
-        n2.setText("Бабушка испекла пирожки: " + i + " с "+
-                food.values()[nf1].toString()+", " + y + " с "+
-                food.values()[nf2].toString()+" и " + n + " с "+
-                food.values()[nf3].toString()+
-                ". Какая вероятность случайно выбрать пирожок с "+
+        qw = Generation.RandomInt(0, 2);
+        n2.setText("Бабушка испекла пирожки: " + i + " с " +
+                food.values()[nf1].toString() + ", " + y + " с " +
+                food.values()[nf2].toString() + " и " + n + " с " +
+                food.values()[nf3].toString() +
+                ". Какая вероятность случайно выбрать пирожок с " +
                 food.values()[tmp2[qw]].toString());
-        otv2 = (double) tmp1[qw]/s;
+        otv2 = (double) tmp1[qw] / s;
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -155,22 +153,21 @@ public class tema4 extends AppCompatActivity {
         double otv3;
 
         i = Generation.RandomInt(2, 10);
-        n3.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double)i/100 +
+        n3.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double) i / 100 +
                 ", найди вероятность купить исправную ручку");
-        otv3 = 1-(double) i/100;
+        otv3 = 1 - (double) i / 100;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -187,22 +184,21 @@ public class tema4 extends AppCompatActivity {
         double otv4;
 
         i = Generation.RandomInt(2, 10);
-        n4.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double)i/100 +
+        n4.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double) i / 100 +
                 ", найди вероятность купить исправную ручку");
-        otv4 = 1-(double) i/100;
+        otv4 = 1 - (double) i / 100;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -219,22 +215,21 @@ public class tema4 extends AppCompatActivity {
         double otv5;
 
         i = Generation.RandomInt(2, 10);
-        n5.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double)i/100 +
+        n5.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double) i / 100 +
                 ", найди вероятность купить две исправные ручки");
-        otv5 = (1-(double) i/100)*(1-(double) i/100);
+        otv5 = (1 - (double) i / 100) * (1 - (double) i / 100);
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -251,22 +246,21 @@ public class tema4 extends AppCompatActivity {
         double otv6;
 
         i = Generation.RandomInt(2, 10);
-        n6.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double)i/100 +
+        n6.setText("При покупке ручки вероятность того, что она окажется бракованной равна: " + (double) i / 100 +
                 ", найди вероятность купить две исправные ручки");
-        otv6 = (1-(double) i/100)*(1-(double) i/100);
+        otv6 = (1 - (double) i / 100) * (1 - (double) i / 100);
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -311,6 +305,7 @@ public class tema4 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

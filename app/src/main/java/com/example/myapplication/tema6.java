@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema6 extends AppCompatActivity {
     final private String Module = "6";
@@ -34,7 +32,7 @@ public class tema6 extends AppCompatActivity {
         setContentView(R.layout.activity_tema6);
 
 
-        int i,y,z;
+        int i, y, z;
         //#1
         TextView n1 = findViewById(R.id.n1);
         Button bn1 = findViewById(R.id.bn1);
@@ -43,21 +41,20 @@ public class tema6 extends AppCompatActivity {
         double otv1;
 
         i = Generation.RandomMul(180);
-        n1.setText("Сколько будет спиц в колесе, если угол между соседними спицами в нём будет равен "+ i+ "°?");
-        otv1 = 360/i;
+        n1.setText("Сколько будет спиц в колесе, если угол между соседними спицами в нём будет равен " + i + "°?");
+        otv1 = 360 / i;
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on1);
                 try {
-                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv1 - Double.parseDouble(on1.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check1.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check1.setImageResource(R.drawable.red);
                     check1.setVisibility(View.VISIBLE);
                 }
@@ -74,21 +71,20 @@ public class tema6 extends AppCompatActivity {
         double otv2;
 
         i = Generation.RandomMul(360);
-        n2.setText("Сколько будет спиц в колесе, если угол между соседними спицами в нём будет равен "+ i+ "°?");
-        otv2 = 360/i;
+        n2.setText("Сколько будет спиц в колесе, если угол между соседними спицами в нём будет равен " + i + "°?");
+        otv2 = 360 / i;
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on2);
                 try {
-                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv2 - Double.parseDouble(on2.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check2.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check2.setImageResource(R.drawable.red);
                     check2.setVisibility(View.VISIBLE);
                 }
@@ -105,23 +101,22 @@ public class tema6 extends AppCompatActivity {
         double otv3;
 
         z = Generation.RandomInt(1, 5);
-        i = 5*z;
-        y = 3*z;
-        n3.setText("Диагональ прямоугольного телевизионного экрана равна "+i+" см, а высота экрана ― "+y+" см. Найдите ширину экрана. Ответ дайте в сантиметрах.");
-        otv3 = 4*z;
+        i = 5 * z;
+        y = 3 * z;
+        n3.setText("Диагональ прямоугольного телевизионного экрана равна " + i + " см, а высота экрана ― " + y + " см. Найдите ширину экрана. Ответ дайте в сантиметрах.");
+        otv3 = 4 * z;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on3);
                 try {
-                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv3 - Double.parseDouble(on3.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check3.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check3.setImageResource(R.drawable.red);
                     check3.setVisibility(View.VISIBLE);
                 }
@@ -138,23 +133,22 @@ public class tema6 extends AppCompatActivity {
         double otv4;
 
         z = Generation.RandomInt(1, 5);
-        i = 5*z;
-        y = 12*z;
-        n4.setText("Длина прямоугольного телевизионного экрана равна "+y+" см, а высота экрана ― "+i+" см. Найдите диагональ экрана. Ответ дайте в сантиметрах.");
-        otv4 = 13*z;
+        i = 5 * z;
+        y = 12 * z;
+        n4.setText("Длина прямоугольного телевизионного экрана равна " + y + " см, а высота экрана ― " + i + " см. Найдите диагональ экрана. Ответ дайте в сантиметрах.");
+        otv4 = 13 * z;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on4);
                 try {
-                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv4 - Double.parseDouble(on4.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check4.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check4.setImageResource(R.drawable.red);
                     check4.setVisibility(View.VISIBLE);
                 }
@@ -171,24 +165,23 @@ public class tema6 extends AppCompatActivity {
         double otv5;
 
         i = Generation.RandomInt(1, 11);
-        n5.setText("Какой наименьший угол (в градусах) образуют минутная и часовая стрелки часов в "+i+":00?");
-        if(i>=6)
-            otv5 = 360-i*30;
+        n5.setText("Какой наименьший угол (в градусах) образуют минутная и часовая стрелки часов в " + i + ":00?");
+        if (i >= 6)
+            otv5 = 360 - i * 30;
         else
-            otv5 = i*30;
+            otv5 = i * 30;
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on5);
                 try {
-                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv5 - Double.parseDouble(on5.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check5.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check5.setImageResource(R.drawable.red);
                     check5.setVisibility(View.VISIBLE);
                 }
@@ -205,24 +198,23 @@ public class tema6 extends AppCompatActivity {
         double otv6;
 
         i = Generation.RandomMul(180);
-        if(i<5)
+        if (i < 5)
             i = Generation.RandomMul(180);
 
-        n6.setText("Колесо имеет "+i+" спиц. Углы между соседними спицами равны. Найдите величину угла (в градусах), который образуют две соседние спицы");
-        otv6 = 360/i;
+        n6.setText("Колесо имеет " + i + " спиц. Углы между соседними спицами равны. Найдите величину угла (в градусах), который образуют две соседние спицы");
+        otv6 = 360 / i;
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 final GlobalClass globalVariable = (GlobalClass) getApplicationContext();
                 setLock(on6);
                 try {
-                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString()))<0.00001d) {
+                    if (Math.abs(otv6 - Double.parseDouble(on6.getText().toString())) < 0.00001d) {
                         globalVariable.NumTruePlus(Module);
                         check6.setVisibility(View.VISIBLE);
                     } else {
                         throw new Exception();
                     }
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     check6.setImageResource(R.drawable.red);
                     check6.setVisibility(View.VISIBLE);
                 }
@@ -267,6 +259,7 @@ public class tema6 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }

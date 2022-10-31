@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,10 +8,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class tema7 extends AppCompatActivity {
     final private String Module = "7";
+
     public enum name {
         Даша,
         Маша,
@@ -48,21 +47,21 @@ public class tema7 extends AppCompatActivity {
         double otv1;
 
         i = Generation.RandomMul(100);
-        y = Math.abs(i+ Generation.RandomMul(100));
-        while((i==y)||(i==0)||(y==0)||(i>y)){
+        y = Math.abs(i + Generation.RandomMul(100));
+        while ((i == y) || (i == 0) || (y == 0) || (i > y)) {
             i = Generation.RandomMul(100);
-            y = Math.abs(i+ Generation.RandomMul(100));
+            y = Math.abs(i + Generation.RandomMul(100));
         }
-  //      while (!Generation.CheckZn(y-i)||(i>=y)){
-  //          y = Generation.RandomMul(100);
-  //      }
-        int nf1= Generation.RandomInt(0,3);
-        int nf2= Generation.RandomInt(0,3);
-        while (nf1==nf2) {
+        //      while (!Generation.CheckZn(y-i)||(i>=y)){
+        //          y = Generation.RandomMul(100);
+        //      }
+        int nf1 = Generation.RandomInt(0, 3);
+        int nf2 = Generation.RandomInt(0, 3);
+        while (nf1 == nf2) {
             nf2 = Generation.RandomInt(0, 3);
         }
-        n1.setText(name.values()[nf1].toString()+" и "+name.values()[nf2].toString()+
-                " пропалывают грядку за " + i + " минут, а одна "+name.values()[nf1].toString()+" — за " + y + " минут. За сколько минут пропалывает грядку одна "+name.values()[nf2].toString()+"?");
+        n1.setText(name.values()[nf1].toString() + " и " + name.values()[nf2].toString() +
+                " пропалывают грядку за " + i + " минут, а одна " + name.values()[nf1].toString() + " — за " + y + " минут. За сколько минут пропалывает грядку одна " + name.values()[nf2].toString() + "?");
         otv1 = (double) y * (double) i / ((double) y - (double) i);
         bn1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -92,21 +91,21 @@ public class tema7 extends AppCompatActivity {
         double otv2;
 
         i = Generation.RandomMul(100);
-        y = Math.abs(i+ Generation.RandomMul(100));
-        while((i==y)||(i==0)||(y==0)||(i>y)){
+        y = Math.abs(i + Generation.RandomMul(100));
+        while ((i == y) || (i == 0) || (y == 0) || (i > y)) {
             i = Generation.RandomMul(100);
-            y = Math.abs(i+ Generation.RandomMul(100));
+            y = Math.abs(i + Generation.RandomMul(100));
         }
         //      while (!Generation.CheckZn(y-i)||(i>=y)){
         //          y = Generation.RandomMul(100);
         //      }
-        nf1= Generation.RandomInt(0,3);
-        nf2= Generation.RandomInt(0,3);
-        while (nf1==nf2) {
+        nf1 = Generation.RandomInt(0, 3);
+        nf2 = Generation.RandomInt(0, 3);
+        while (nf1 == nf2) {
             nf2 = Generation.RandomInt(0, 3);
         }
-        n2.setText(name.values()[nf1].toString()+" и "+name.values()[nf2].toString()+
-                " пропалывают грядку за " + i + " минут, а одна "+name.values()[nf1].toString()+" — за " + y + " минут. За сколько минут пропалывает грядку одна "+name.values()[nf2].toString()+"?");
+        n2.setText(name.values()[nf1].toString() + " и " + name.values()[nf2].toString() +
+                " пропалывают грядку за " + i + " минут, а одна " + name.values()[nf1].toString() + " — за " + y + " минут. За сколько минут пропалывает грядку одна " + name.values()[nf2].toString() + "?");
         otv2 = (double) y * (double) i / ((double) y - (double) i);
         bn2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -135,16 +134,16 @@ public class tema7 extends AppCompatActivity {
         ImageView check3 = findViewById(R.id.check3);
         double otv3;
 
-        int S,n,a1,an, d;
+        int S, n, a1, an, d;
         a1 = Generation.RandomInt(1, 10);
         n = Generation.RandomInt(7, 15);
-        if(n%2!=0)
+        if (n % 2 != 0)
             n = Generation.RandomInt(7, 15);
         d = Generation.RandomInt(2, 6);
-        an=a1+d*(n-1);
-        S=(a1+an)*n/2;
-        n3.setText("Васе надо решить "+S+" задач. Ежедневно он решает на одно и то же количество задач больше по сравнению с предыдущим днем. " +
-                "Известно, что за первый день Вася решил "+a1+" задач. Определите, сколько задач решил Вася в последний день, если со всеми задачами он справился за "+n+" дней.");
+        an = a1 + d * (n - 1);
+        S = (a1 + an) * n / 2;
+        n3.setText("Васе надо решить " + S + " задач. Ежедневно он решает на одно и то же количество задач больше по сравнению с предыдущим днем. " +
+                "Известно, что за первый день Вася решил " + a1 + " задач. Определите, сколько задач решил Вася в последний день, если со всеми задачами он справился за " + n + " дней.");
         otv3 = an;
         bn3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -175,13 +174,13 @@ public class tema7 extends AppCompatActivity {
 
         a1 = Generation.RandomInt(1, 10);
         n = Generation.RandomInt(7, 15);
-        if(n%2!=0)
+        if (n % 2 != 0)
             n = Generation.RandomInt(10, 20);
         d = Generation.RandomInt(2, 6);
-        an=a1+d*(n-1);
-        S=(a1+an)*n/2;
-        n4.setText("Васе надо решить "+S+" задач. Ежедневно он решает на одно и то же количество задач больше по сравнению с предыдущим днем. " +
-                "Известно, что за первый день Вася решил "+a1+" задач. Определите, сколько задач решил Вася в последний день, если со всеми задачами он справился за "+n+" дней.");
+        an = a1 + d * (n - 1);
+        S = (a1 + an) * n / 2;
+        n4.setText("Васе надо решить " + S + " задач. Ежедневно он решает на одно и то же количество задач больше по сравнению с предыдущим днем. " +
+                "Известно, что за первый день Вася решил " + a1 + " задач. Определите, сколько задач решил Вася в последний день, если со всеми задачами он справился за " + n + " дней.");
         otv4 = an;
         bn4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -210,16 +209,16 @@ public class tema7 extends AppCompatActivity {
         ImageView check5 = findViewById(R.id.check5);
         double otv5;
 
-        int x,c;
-        int a,b;
+        int x, c;
+        int a, b;
         x = Generation.RandomInt(10, 20);
         c = Generation.RandomInt(10, 20);
         a = Generation.RandomMul(100);
-        b = Math.abs(a-Generation.RandomMul(100));
+        b = Math.abs(a - Generation.RandomMul(100));
 
-        n5.setText("Сергей смешал раствор, содержащий "+x+"% кислоты и раствор, содержащий "+c+"% той же кислоты. " +
-                "В итоге у него получился раствор, содержащий "+Math.round((((double)a*x+(double)b*c)/(double)(a+b))*100d)/100d+"% кислоты, причём объём полученного раствора "+(a+b)+" литра. " +
-                "Сколько литров раствора, содержащего "+x+"% кислоты, использовал Сергей при смешивании? Ответ округлить до целых");
+        n5.setText("Сергей смешал раствор, содержащий " + x + "% кислоты и раствор, содержащий " + c + "% той же кислоты. " +
+                "В итоге у него получился раствор, содержащий " + Math.round((((double) a * x + (double) b * c) / (double) (a + b)) * 100d) / 100d + "% кислоты, причём объём полученного раствора " + (a + b) + " литра. " +
+                "Сколько литров раствора, содержащего " + x + "% кислоты, использовал Сергей при смешивании? Ответ округлить до целых");
         otv5 = a;
         bn5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -251,10 +250,10 @@ public class tema7 extends AppCompatActivity {
         x = Generation.RandomInt(10, 20);
         c = Generation.RandomInt(10, 20);
         a = Generation.RandomMul(100);
-        b = Math.abs(a-Generation.RandomMul(100));
-        n6.setText("Сергей смешал раствор, содержащий "+x+"% кислоты и раствор, содержащий "+c+"% той же кислоты. " +
-                "В итоге у него получился раствор, содержащий "+Math.round((((double)a*x+(double)b*c)/(double)(a+b))*100d)/100d+"% кислоты, причём объём полученного раствора "+(a+b)+" литра. " +
-                "Сколько литров раствора, содержащего "+x+"% кислоты, использовал Сергей при смешивании? Ответ округлить до целых");
+        b = Math.abs(a - Generation.RandomMul(100));
+        n6.setText("Сергей смешал раствор, содержащий " + x + "% кислоты и раствор, содержащий " + c + "% той же кислоты. " +
+                "В итоге у него получился раствор, содержащий " + Math.round((((double) a * x + (double) b * c) / (double) (a + b)) * 100d) / 100d + "% кислоты, причём объём полученного раствора " + (a + b) + " литра. " +
+                "Сколько литров раствора, содержащего " + x + "% кислоты, использовал Сергей при смешивании? Ответ округлить до целых");
         otv6 = a;
         bn6.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -312,6 +311,7 @@ public class tema7 extends AppCompatActivity {
         context.setEnabled(false);
         context.setCursorVisible(false);
     }
+
     @Override
     public void onBackPressed() {
     }
