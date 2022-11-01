@@ -49,7 +49,7 @@ public class Test_Oge_6 extends AppCompatActivity implements GenerateLayout.Some
         ArrayList<Integer> Vol_task = new ArrayList<>();
 
         Var_task.add("r");
-        Vol_task.add(3);
+        Vol_task.add(10);
 
         int n = Enter_task.length;
         ArrayList<EnterVarVol> enterVarVols = new ArrayList<EnterVarVol>();

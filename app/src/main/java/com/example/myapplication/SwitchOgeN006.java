@@ -9,7 +9,7 @@ public class SwitchOgeN006 implements Testable{
 
     public Structure_Task getTask(String var, Generations generations) {
         int min = 1;
-        int max = 3;
+        int max = 5;
         String r = var;
         if(r=="r"){
             r = Integer.toString(generations.RandomInt(min, max));
