@@ -8,7 +8,7 @@ public class GenerateSeed {
     private ShifrToSeed shifrToSeed;
     private StructureGen structureGen;
 
-    GenerateSeed() {
+    public GenerateSeed() {
     }
 
     public Generations generationSeed(StructureGen structureGen) {

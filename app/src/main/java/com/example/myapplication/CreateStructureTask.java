@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.InputType;
@@ -15,6 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class CreateStructureTask {
 
@@ -183,6 +187,15 @@ public class CreateStructureTask {
                 } else {
                     wrongAnswerTask(iv);
                 }
+                Calendar calendar = Calendar.getInstance();
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                String currentDate = dateFormat.format(calendar.getTime());
+                DatabaseHelper dbHelper = new DatabaseHelper(context);
+                ContentValues data = new ContentValues();
+                data.put("date", currentDate);
+                data.put("task", Integer.parseInt(module));
+                data.put("ver", tmpAnswer.equals(et.getText().toString()));
+                dbHelper.insertData(data);
                 listener.loadRightAnswer("", false, true, false);
             }
         });

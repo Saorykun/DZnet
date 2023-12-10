@@ -10,7 +10,7 @@ public class EnterVarVol {
     EnterVarVol() {
     }
 
-    EnterVarVol(String name, ArrayList<String> var, ArrayList<Integer> vol) {
+    public EnterVarVol(String name, ArrayList<String> var, ArrayList<Integer> vol) {
         this.name = name;
         this.var = var;
         this.vol = vol;

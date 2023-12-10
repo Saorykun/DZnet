@@ -8,7 +8,7 @@ public class StructureGen {
     private String seedVol;                              //Заданный сид исключает все остальное
 
 
-    StructureGen(ArrayList<EnterVarVol> enterVarVol, String seedVol) {
+    public StructureGen(ArrayList<EnterVarVol> enterVarVol, String seedVol) {
         this.enterVarVol = enterVarVol;
         this.seedVol = seedVol;
     }

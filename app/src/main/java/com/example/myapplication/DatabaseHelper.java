@@ -1,5 +1,7 @@
 package com.example.myapplication;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -76,6 +78,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean openDataBase() throws SQLException {
         mDataBase = SQLiteDatabase.openDatabase(DB_PATH + DB_NAME, null, SQLiteDatabase.CREATE_IF_NECESSARY);
         return mDataBase != null;
+    }
+
+    public Cursor getDataByQuery(String query, String[] selectionArgs) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+        return cursor;
+    }
+
+    public void insertData(ContentValues values) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert("TEST_RES", null, values);
+        db.close();
     }
 
     @Override

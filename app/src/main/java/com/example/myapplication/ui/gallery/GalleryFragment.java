@@ -1,10 +1,14 @@
 package com.example.myapplication.ui.gallery;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -12,15 +16,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.myapplication.DatabaseHelper;
 import com.example.myapplication.GlobalClass;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.FragmentGalleryBinding;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +94,13 @@ public class GalleryFragment extends Fragment {
                 TextView textView2 = new TextView(getContext());
                 textView2.setTextAppearance(R.style.Task);
                 textView2.setPadding(8, 8, 8, 8);
-                textView2.setText(globalVariable.getRightAnswer(df.format(i + 1))*100/(globalVariable.getVolAnswer(df.format(i + 1)))+"%");
+                //textView2.setText(globalVariable.getRightAnswer(df.format(i + 1))*100/(globalVariable.getVolAnswer(df.format(i + 1)))+"%");
+                DatabaseHelper dbHelper = new DatabaseHelper(this.getContext());
+                LocalDate currentDate = LocalDate.now();
+                LocalDate modifiedDate = currentDate.minusMonths(1);
+                double true_task = dbHelper.getDataByQuery("SELECT * FROM TEST_RES WHERE TASK="+String.valueOf(i+1)+" and DATE > "+modifiedDate.toString()+" and VER=1",null).getCount();
+                double all_task = dbHelper.getDataByQuery("SELECT * FROM TEST_RES WHERE TASK="+String.valueOf(i+1)+" and DATE > "+modifiedDate.toString(),null).getCount();
+                textView2.setText(String.valueOf((int)((true_task/all_task)*100))+"%");
 
                 tableRow.addView(textView1, new TableRow.LayoutParams(
                         TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0.6f));
@@ -96,8 +111,29 @@ public class GalleryFragment extends Fragment {
                 y++;
             }
         }
+        Button bt = new Button(getContext());
+        bt.setId(View.generateViewId());
+        bt.setText("Click");
+        bt.setPadding(8, 8, 8, 8);
+        bt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String activityToStart = "com.example.myapplication.ui.gallery.Test_Ind";
+                try {
+                    Class<?> c = Class.forName(activityToStart);
+                    Intent intent = new Intent(getContext(), c);
+                    startActivity(intent);
+                } catch (ClassNotFoundException ignored) {
+                }
+            }
+        });
 
+        TableRow tableRow = new TableRow(getContext());
+        tableRow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,
+                TableRow.LayoutParams.WRAP_CONTENT));
+        tableRow.setPadding(32,8,32,8);
 
+        tableRow.addView(bt);
+        tableLayout.addView(tableRow, y);
         return root;
     }
 

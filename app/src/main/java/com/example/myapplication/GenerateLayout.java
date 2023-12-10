@@ -18,7 +18,7 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1 {
 
     SomeListener2 listener;
 
-    interface SomeListener2 {
+    public interface SomeListener2 {
         void loadRightAnswer2(String answer, Boolean rightAnswerPlus, Boolean onCheck, Boolean onCheckAll);
     }
 
@@ -26,7 +26,7 @@ public class GenerateLayout implements CreateStructureTask.SomeListener1 {
         this.listener = listener;
     }
 
-    GenerateLayout(Context context, Generations generations, StructureGen structureGen, String module) {
+    public GenerateLayout(Context context, Generations generations, StructureGen structureGen, String module) {
         this.context = context;
         this.generations = generations;
         this.module = module;

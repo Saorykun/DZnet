@@ -71,7 +71,7 @@ public class PageFragment extends Fragment {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (globalVariable.getAttempt(pageNumber + 1) > 0) {
+                if ((globalVariable.getAttempt(pageNumber + 1) > 0) || !globalVariable.getModeAttempt() ) {
                     if (globalVariable.getModeAttempt())
                         globalVariable.setAttemptMinus(pageNumber + 1);
                     String activityToStart = "com.example.myapplication.Test_Oge_" + (pageNumber + 1);
