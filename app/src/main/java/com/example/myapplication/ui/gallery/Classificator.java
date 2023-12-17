@@ -37,14 +37,18 @@ public class Classificator {
         vol_modules = new ArrayList<>();
         // Создаем тренировочные данные и метки классов
         List<double[]> trainingData = new ArrayList<>();
-        trainingData.add(new double[]{10.0, 4.0});
+        trainingData.add(new double[]{5.0, 1.0});
         trainingData.add(new double[]{10.0, 3.0});
-        trainingData.add(new double[]{0.0, 10.0});
+        trainingData.add(new double[]{2.0, 0.0});
+        trainingData.add(new double[]{3.0, 1.0});
+        trainingData.add(new double[]{0.0, 5.0});
         trainingData.add(new double[]{1.0, 3.0});
-        trainingData.add(new double[]{1.0, 5.0});
-        trainingData.add(new double[]{7.0, 20.0});
+        trainingData.add(new double[]{2.0, 5.0});
+        trainingData.add(new double[]{3.0, 7.0});
 
         List<String> trainingLabels = new ArrayList<>();
+        trainingLabels.add("Класс A");
+        trainingLabels.add("Класс A");
         trainingLabels.add("Класс A");
         trainingLabels.add("Класс A");
         trainingLabels.add("Класс B");
