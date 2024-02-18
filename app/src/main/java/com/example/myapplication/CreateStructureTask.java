@@ -117,7 +117,7 @@ public class CreateStructureTask {
 
         //Создание таска
         SwitchModule switchModule = new SwitchModule();
-        Structure_Task struct = switchModule.getTask(enter_task, var_task, generations);
+        Structure_Task struct = switchModule.getTask(enter_task, var_task, generations, context);
         //Из таска забрать ответы и отправить в тест
         this.tmpAnswer = struct.getAnswer();
         listener.loadRightAnswer(tmpAnswer, false, false, false);

@@ -11,16 +11,18 @@ public class SwitchModule {
     SwitchModule() {
     }
 
-    public Structure_Task getTask(String enter, String var, Generations generations) {
+    public Structure_Task getTask(String enter, String var, Generations generations, Context context) {
         String activityToStart = "com.example.myapplication.SwitchOgeN" + enter;
         try {
             Class<?> c = Class.forName(activityToStart);
-            Class[] cArg = new Class[2];
+            Class[] cArg = new Class[3];
             cArg[0]= String.class;
             cArg[1]= Generations.class;
-            Object[] objects=new Object[2];
+            cArg[2]= Context.class;
+            Object[] objects=new Object[3];
             objects[0]=var;
             objects[1]=generations;
+            objects[2]=context;
             Method m = c.getMethod("getTask", cArg);
             m.setAccessible(true);
             Structure_Task structureTask = (Structure_Task) m.invoke(c.newInstance(),objects);
@@ -32,7 +34,7 @@ public class SwitchModule {
         catch (ClassNotFoundException e) {e.printStackTrace();}
         catch (InstantiationException e) {e.printStackTrace();}
         SwitchOgeN006 switchOgeN006 = new SwitchOgeN006();
-        Structure_Task struct = switchOgeN006.getTask(var, generations);
+        Structure_Task struct = switchOgeN006.getTask(var, generations, context);
         return struct;
     }
 }

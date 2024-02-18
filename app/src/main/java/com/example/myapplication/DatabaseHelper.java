@@ -11,6 +11,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DB_NAME = "db.db";
@@ -34,6 +38,77 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         this.getReadableDatabase();
     }
 
+    //Получение списка заданий которые проходил ученик
+    public ArrayList<String> getTasks(){
+        LocalDate currentDate = LocalDate.now();
+        LocalDate modifiedDate = currentDate.minusMonths(1);
+
+        // Создаем новый образец для классификации
+        Cursor cursor = getDataByQuery("SELECT * FROM TEST_RES WHERE DATE > " + modifiedDate.toString(), null);
+        ArrayList<String> tasks = new ArrayList<>();
+        int columnIndex = cursor.getColumnIndex("task");
+
+        while (cursor.moveToNext()) {
+            String value = cursor.getString(columnIndex);
+            if (!tasks.contains(value))
+                tasks.add(value);
+        }
+        return tasks;
+    }
+
+    //Получение последовательности верноных/неверных решений для всех заданий
+    public double[][] getSeqRightTaskMass(){
+        LocalDate currentDate = LocalDate.now();
+        LocalDate modifiedDate = currentDate.minusMonths(1);
+        ArrayList<String> tasks = getTasks();
+        List<List<Double>> DouPRList = new ArrayList<>();
+        for (String number : tasks) {
+            Cursor cursor1 = getDataByQuery("SELECT date, GROUP_CONCAT(CAST(ver AS TEXT)) AS sequence FROM TEST_RES WHERE TASK=" + number + " and date > " + modifiedDate.toString() + " ORDER BY date LIMIT 5", null);
+            String StrPR="";
+            if (cursor1 != null && cursor1.moveToFirst()) {
+                int sequenceIndex = cursor1.getColumnIndex("sequence");
+                if (sequenceIndex != -1) {
+                    StrPR = cursor1.getString(sequenceIndex);
+                    // Далее обрабатываем строку StrPR
+                } else {
+                    // Обработка ситуации, когда столбец "sequence" не найден
+                }
+                cursor1.close();
+            } else {
+                // Обработка ситуации, когда курсор пуст или не удалось выполнить запрос
+            }
+            String[] numbers = StrPR.split(",");
+            Double[] DouPR = new Double[numbers.length];
+            for (int i = 0; i < numbers.length; i++) {
+                DouPR[i] = Double.parseDouble(numbers[i]);
+            }
+            DouPRList.add(new ArrayList<Double>(Arrays.asList(DouPR)));
+            System.out.println("НОМ: " + number + " : " + StrPR + " " + Arrays.toString(DouPR));
+        }
+        double[][] dataToPR = new double[DouPRList.size()][];
+        for (int i = 0; i < DouPRList.size(); i++) {
+            List<Double> row = DouPRList.get(i);
+            int len;
+            if (row.size() > 5) {
+                len = 5;
+            }
+            else {
+                len = row.size();
+            }
+            dataToPR[i] = new double[len];
+            for (int j = row.size()-len; j < row.size(); j++) {
+                dataToPR[i][j-row.size()+len] = row.get(j);
+            }
+        }
+        // Вывод результата
+        for (double[] row : dataToPR) {
+            for (double num1 : row) {
+                System.out.print(num1 + " ");
+            }
+            System.out.println();
+        }
+        return dataToPR;
+    }
     public void updateDataBase() throws IOException {
         if (mNeedUpdate) {
             File dbFile = new File(DB_PATH + DB_NAME);

@@ -117,11 +117,12 @@ public class GalleryFragment extends Fragment {
         bt.setPadding(8, 8, 8, 8);
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String activityToStart = "com.example.myapplication.ui.gallery.Test_Ind";
+                String activityToStart2 = "com.example.myapplication.ui.gallery.Test_Ind";
                 try {
-                    Class<?> c = Class.forName(activityToStart);
-                    Intent intent = new Intent(getContext(), c);
-                    startActivity(intent);
+                    Class<?> c = Class.forName(activityToStart2);
+                    Intent intent1 = new Intent(getContext(), c);
+                    intent1.putExtra("switch", "1");
+                    startActivity(intent1);
                 } catch (ClassNotFoundException ignored) {
                 }
             }
@@ -132,9 +133,35 @@ public class GalleryFragment extends Fragment {
                 TableRow.LayoutParams.WRAP_CONTENT));
         tableRow.setPadding(32,8,32,8);
 
+
+        Button bt1 = new Button(getContext());
+        bt1.setId(View.generateViewId());
+        bt1.setText("Click2");
+        bt1.setPadding(8, 8, 8, 8);
+        bt1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String activityToStart = "com.example.myapplication.ui.gallery.Test_Ind";
+                try {
+                    Class<?> c = Class.forName(activityToStart);
+                    Intent intent = new Intent(getContext(), c);
+                    intent.putExtra("switch", "2");
+                    startActivity(intent);
+                } catch (ClassNotFoundException ignored) {
+                }
+            }
+        });
+
+
         tableRow.addView(bt);
+        tableRow.addView(bt1);
         tableLayout.addView(tableRow, y);
+
+
+
+
         return root;
+
+
     }
 
     @Override

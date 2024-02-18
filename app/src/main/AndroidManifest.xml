@@ -18,19 +18,11 @@
             android:name=".ui.gallery.Test_Ind"
             android:exported="false" />
         <activity
-            android:name=".DynamicLayoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".XMLLayoutActivity"
-            android:exported="false" />
-        <activity
             android:name=".Test_Oge_6"
             android:exported="false" />
         <activity
-            android:name=".OGE_TEST_6"
-            android:exported="false"
-            android:label="@string/title_activity_oge_test6"
-            android:theme="@style/Theme.MyApplication.NoActionBar" />
+            android:name=".Test_Oge_5"
+            android:exported="false" />
         <activity
             android:name=".tema10"
             android:exported="false" />
