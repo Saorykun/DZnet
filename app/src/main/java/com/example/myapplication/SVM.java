@@ -68,7 +68,7 @@ public class SVM {
             if (prediction == 0) {
                 modules.add("00" + tasks.get(i));
             }
-            vol_modules.add("2");
+            vol_modules.add("1");
         }
     }
 

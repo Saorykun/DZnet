@@ -111,7 +111,7 @@ public class CreateStructureTask {
         this.enter_task = enter_task;
         this.var_task = var_task;
 
-        if (module != "") {
+        if (module == "") {
             enter_task = module;
         }
 

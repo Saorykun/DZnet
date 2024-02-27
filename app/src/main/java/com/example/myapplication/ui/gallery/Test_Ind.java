@@ -43,7 +43,7 @@ public class Test_Ind extends AppCompatActivity implements GenerateLayout.SomeLi
     Classificator classificator;
     SVM svm;
     //Self var
-    String Module = "006"; //Модуль - это критерий по которому генерируются только вариации одного номера заданий из огэ
+    String Module; //Модуль - это критерий по которому генерируются только вариации одного номера заданий из огэ
     //исключает Enter_task, то есть все равно какой он
 
     @Override
