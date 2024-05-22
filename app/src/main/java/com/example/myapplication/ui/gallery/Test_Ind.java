@@ -16,6 +16,7 @@ import com.example.myapplication.StructureGen;
 import com.example.myapplication.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Test_Ind extends AppCompatActivity implements GenerateLayout.SomeListener2 {
 
@@ -77,7 +78,7 @@ public class Test_Ind extends AppCompatActivity implements GenerateLayout.SomeLi
         int n = Enter_task.size();
         ArrayList<EnterVarVol> enterVarVols = new ArrayList<EnterVarVol>();
         for (int i = 0; i < n; i++) {
-            enterVarVols.add(new EnterVarVol(Enter_task.get(i), Var_task, Vol_task));
+            enterVarVols.add(new EnterVarVol(Enter_task.get(i), new ArrayList<>(Arrays.asList(String.valueOf(Var_task.get(i)))), new ArrayList<>(Arrays.asList(Vol_task.get(i)))));
         }
         this.structureGen = new StructureGen(enterVarVols, seedVol);
 
