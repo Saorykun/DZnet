@@ -63,9 +63,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<String> tasks = getTasks();
         List<List<Double>> DouPRList = new ArrayList<>();
         for (String number : tasks) {
-            Cursor cursor1 = getDataByQuery("SELECT date, GROUP_CONCAT(CAST(ver AS TEXT)) AS sequence FROM TEST_RES WHERE TASK=" + number + " and date > " + modifiedDate.toString() + " ORDER BY date LIMIT 5", null);
+            Cursor cursor1= getDataByQuery("SELECT date, GROUP_CONCAT(CAST(ver AS TEXT)) AS sequence FROM TEST_RES WHERE TASK=" + number + " and date > " + modifiedDate.toString() + " ORDER BY date LIMIT 5", null);
             String StrPR="";
-            if (cursor1 != null && cursor1.moveToFirst()) {
+            if (cursor1!= null && cursor1.moveToFirst()) {
                 int sequenceIndex = cursor1.getColumnIndex("sequence");
                 if (sequenceIndex != -1) {
                     StrPR = cursor1.getString(sequenceIndex);
@@ -102,8 +102,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         // Вывод результата
         for (double[] row : dataToPR) {
-            for (double num1 : row) {
-                System.out.print(num1 + " ");
+            for (double num1: row) {
+                System.out.print(num1+ " ");
             }
             System.out.println();
         }
@@ -189,13 +189,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Ваш код для извлечения тестовых данных из базы данных или другого источника
         // Примерный формат возвращаемых данных:
         double[][] testData = {
-                {0,0,0,0,0},
-                {0,1,0,0,0},
-                {0,1,1,0,0},
-                {0,0,0,0,1},
-                {1,0,1,0,1},
-                {0,0,1,1,1},
-                {0,1,1,1,1}
+//                {0,0,0,0,0},
+//                {0,1,0,0,0},
+//                {0,1,1,0,0},
+//                {0,0,0,0,1},
+//                {1,0,1,0,1},
+//                {0,0,1,1,1},
+//                {0,1,1,1,1}
+                {0,0,0,1,0,1,1,1,1,0},
+                {1,0,0,0,0,1,0,0,0,1},
+                {1,0,1,0,1,1,0,0,0,0},
+                {0,1,0,0,1,0,1,0,1,0},
+                {0,0,0,0,1,1,0,0,0,1},
+                {1,0,1,0,0,1,1,0,1,1},
+                {1,1,0,0,1,0,0,0,0,0},
+                {1,1,1,0,1,1,1,1,1,0},
+                {0,1,0,0,0,1,0,1,0,1},
+                {1,0,0,1,0,0,0,1,0,1},
+                {1,1,0,1,1,0,0,1,1,1},
+                {0,1,1,1,1,0,0,0,0,0},
+                {0,1,1,1,0,0,0,0,0,1},
+                {0,0,0,0,1,0,0,0,0,0},
+                {1,1,1,0,0,0,1,1,1,0},
+                {0,1,1,1,1,1,0,1,1,0},
+
+                {0,0,0,1,1,0,1,0,1,1},
+                {0,0,1,0,1,1,1,1,0,1},
+                {1,0,0,0,1,0,1,0,1,1},
+                {1,0,1,1,1,1,0,0,1,1},
+                {0,1,1,1,0,0,1,1,0,1},
+                {1,0,1,0,0,1,0,0,1,0},
+                {1,0,0,1,1,0,0,0,1,0},
+                {0,1,0,0,1,1,1,1,1,1},
+                {0,1,1,1,1,1,1,0,1,1},
+                {0,0,1,1,0,1,1,0,1,1}
+
         };
         return testData;
     }
@@ -205,7 +233,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Ваш код для извлечения меток из базы данных или другого источника
         // Примерный формат возвращаемых меток:
         double[] trueLabels = {
-                -1,-1,-1,-1,-1,1,1
+                1,-1,-1,-1,-1,1,-1,1,-1,-1,1,-1,-1,-1,1,1,
+                1,1,1,1,1,-1,-1,1,1,1
         };
         return trueLabels;
     }

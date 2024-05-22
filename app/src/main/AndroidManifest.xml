@@ -21,6 +21,21 @@
             android:name=".Test_Oge_6"
             android:exported="false" />
         <activity
+            android:name=".Test_Oge_3"
+            android:exported="false" />
+        <activity
+            android:name=".Test_Oge_1"
+            android:exported="false" />
+        <activity
+            android:name=".Test_Oge_2"
+            android:exported="false" />
+        <activity
+            android:name=".Test_Oge_4"
+            android:exported="false" />
+        <activity
+            android:name=".Test_Oge_7"
+            android:exported="false" />
+        <activity
             android:name=".Test_Oge_5"
             android:exported="false" />
         <activity
