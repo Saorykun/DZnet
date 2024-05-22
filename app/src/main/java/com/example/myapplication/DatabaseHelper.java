@@ -184,4 +184,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (newVersion > oldVersion)
             mNeedUpdate = true;
     }
+
+    public double[][] getTestData() {
+        // Ваш код для извлечения тестовых данных из базы данных или другого источника
+        // Примерный формат возвращаемых данных:
+        double[][] testData = {
+                {0,0,0,0,0},
+                {0,1,0,0,0},
+                {0,1,1,0,0},
+                {0,0,0,0,1},
+                {1,0,1,0,1},
+                {0,0,1,1,1},
+                {0,1,1,1,1}
+        };
+        return testData;
+    }
+
+    // Метод для получения правильных меток для тестовых данных
+    public double[] getTrueLabels() {
+        // Ваш код для извлечения меток из базы данных или другого источника
+        // Примерный формат возвращаемых меток:
+        double[] trueLabels = {
+                -1,-1,-1,-1,-1,1,1
+        };
+        return trueLabels;
+    }
 }

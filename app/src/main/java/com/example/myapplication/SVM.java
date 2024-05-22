@@ -13,6 +13,7 @@ public class SVM {
     private ArrayList<String> modules;
     private ArrayList<String> vol_modules;
     private svm_model model;
+    private double[][] predictions;
 
     public SVM() {
         // Инициализация модели SVM
@@ -33,26 +34,28 @@ public class SVM {
         SVM classifier = new SVM();
         // Создаем тренировочные данные и метки классов
         double[][] features  = {
-            {0,0,0,0,0},
-            {0,0,0,0,1},
-            {0,0,0,1,0},
-            {1,1,1,0,0},
-            {1,1,0,0,0},
-            {0,0,1,0,0},
-            {0,0,1,1,0},
-            {1,0,1,0,0},
-            {0,0,1,1,1},
-            {0,1,1,1,1},
-            {1,1,1,1,1},
-            {1,0,1,1,1},
-            {1,1,0,1,1},
-            {0,1,0,1,1},
-            {1,1,1,0,1},
-            {0,0,0,1,1}
+                {0,0,0,0,0},
+                {0,0,0,0,1},
+                {0,0,0,1,0},
+                {1,1,1,0,0},
+                {1,1,0,0,0},
+                {0,0,1,0,0},
+                {0,0,1,1,0},
+                {1,0,1,0,0},
+                {0,0,1,1,1},
+                {0,1,1,1,1},
+                {1,1,1,1,1},
+                {1,0,1,1,1},
+                {1,1,0,1,1},
+                {0,1,0,1,1},
+                {1,1,1,0,1},
+                {0,0,0,1,1},
+                {0,0,0,0,1},
+                {1,0,0,0,1}
         };
 
         // Метки классов для данных (1 - непроблемное задание, -1 - проблемное задание)
-        int[] labels = {0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1};
+        int[] labels = {-1, -1, -1, -1, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -1, -1};
 
         // Обучение модели
         classifier.train(features, labels);
@@ -61,15 +64,27 @@ public class SVM {
         ArrayList<String> tasks = dbHelper.getTasks();
         double[][] dataToPR= dbHelper.getSeqRightTaskMass();
 
-        for(int i = 0; i<tasks.size();i++) {
+        for (int i = 0; i < tasks.size(); i++) {
             double prediction = classifier.predict(dataToPR[i]);
             System.out.println("Prediction: " + prediction);
             // Сравниваем предсказанную метку
-            if (prediction == 0) {
+            if (prediction == 1) { // Если предсказание 1, то задание не проблемное
+                System.out.println("Ne problemoe");
+            } else { // В противном случае, задание проблемное
                 modules.add("00" + tasks.get(i));
+                vol_modules.add("2");
             }
-            vol_modules.add("1");
         }
+            // Получаем тестовые данные из базы данных
+        double[][] testData = dbHelper.getTestData();
+        // Используем модель для предсказания меток для тестовых данных
+        double[] predictedLabels = new double[testData.length];
+        for (int i = 0; i < testData.length; i++) {
+            predictedLabels[i] = classifier.predict(testData[i]);
+            System.out.println("Test #"+(i+1)+" TrueLabel: " + dbHelper.getTrueLabels()[i] + " Predict: " + predictedLabels[i]);
+        }
+        calculateMetrics(dbHelper.getTrueLabels(), predictedLabels);
+
     }
 
     // Метод обучения SVM
@@ -115,4 +130,36 @@ public class SVM {
         }
         return svm.svm_predict(model, nodes);
     }
+
+
+    public static void calculateMetrics(double[] trueLabels, double[] predictedLabels) {
+        int truePositives = 0;
+        int falsePositives = 0;
+        int trueNegatives = 0;
+        int falseNegatives = 0;
+
+        for (int i = 0; i < trueLabels.length; i++) {
+            if (trueLabels[i] == 1 && predictedLabels[i] == 1) {
+                truePositives++;
+            } else if (trueLabels[i] == 1 && predictedLabels[i] == -1) {
+                falseNegatives++;
+            } else if (trueLabels[i] == -1 && predictedLabels[i] == 1) {
+                falsePositives++;
+            } else if (trueLabels[i] == -1 && predictedLabels[i] == -1) {
+                trueNegatives++;
+            }
+        }
+
+        double accuracy = (double) (truePositives + trueNegatives) / trueLabels.length;
+        double precision = (double) truePositives / (truePositives + falsePositives);
+        double recall = (double) truePositives / (truePositives + falseNegatives);
+        double f1Score = 2 * (precision * recall) / (precision + recall);
+
+        System.out.println("Accuracy: " + accuracy);
+        System.out.println("Precision: " + precision);
+        System.out.println("Recall: " + recall);
+        System.out.println("F1 Score: " + f1Score);
+    }
+
 }
+

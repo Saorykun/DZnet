@@ -89,9 +89,10 @@ public class Classificator {
         for (int i =0; i<sample.size();i++) {
             String predictedLabel = classifier.predict(sample.get(i));
             System.out.println("Предсказанная метка класса: " + predictedLabel);
-            if(predictedLabel=="Класс B")
-                modules.add("00"+tasks.get(i));
-            vol_modules.add("2");
+            if(predictedLabel=="Класс B") {
+                modules.add("00" + tasks.get(i));
+                vol_modules.add("2");
+            }
         }
 
 
