@@ -113,7 +113,7 @@ public class GalleryFragment extends Fragment {
         }
         Button bt = new Button(getContext());
         bt.setId(View.generateViewId());
-        bt.setText("Click");
+        bt.setText("222");
         bt.setPadding(8, 8, 8, 8);
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

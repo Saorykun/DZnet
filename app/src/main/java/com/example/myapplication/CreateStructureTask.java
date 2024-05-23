@@ -5,8 +5,11 @@ import android.content.ClipboardManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Build;
 import android.text.InputType;
+import android.text.Layout;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.widget.TextViewCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -154,6 +160,7 @@ public class CreateStructureTask {
         LinearLayout.LayoutParams ivLP = new LinearLayout.LayoutParams(
                 convertPrToPixel(10),
                 convertPrToPixel(10));
+        ivLP.setMargins(0,8,0,0);
         iv.setLayoutParams(ivLP);
         iv.setPadding(32, 8, 8, 8);
         iv.setImageResource(R.drawable.green);
@@ -165,17 +172,19 @@ public class CreateStructureTask {
         LinearLayout.LayoutParams edd = new LinearLayout.LayoutParams(
                 convertPrToPixel(60),
                 LinearLayout.LayoutParams.WRAP_CONTENT);
+        edd.setMargins(0,16,0,0);
+        et.setBackgroundResource(android.R.color.transparent);
         et.setLayoutParams(edd);
-        et.setHint("answer");
+        et.setHint("Впиши ответ");
         et.setInputType(InputType.TYPE_CLASS_PHONE);
-        et.setPadding(8, 8, 8, 8);
+        et.setPadding(8, 16, 8, 8);
         hh.addView(et);
 
         //Button
-        Button bt = new Button(context);
+        Button bt = new BeautifulButton(context);
         bt.setId(View.generateViewId());
-        bt.setText("Click");
-        bt.setPadding(8, 8, 8, 8);
+        bt.setText("");
+        bt.setPadding(8, 8, 0, 8);
         bt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Boolean flag = true;
@@ -204,6 +213,8 @@ public class CreateStructureTask {
         ll.addView(hh);
         return ll;
     }
+
+
 
     public LinearLayout getFinishButton(Context context) {
         this.context = context;

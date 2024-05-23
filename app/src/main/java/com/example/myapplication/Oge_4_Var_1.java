@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
+
 public class Oge_4_Var_1 implements Taskable {
 
     private final static String Id = "004";
